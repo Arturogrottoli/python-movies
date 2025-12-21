@@ -1,8 +1,10 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import { MovieList } from "./movie-list"
 import { SearchMovies } from "./search-movies"
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000"
 
 interface Movie {
   id: number
@@ -10,78 +12,98 @@ interface Movie {
   year: number
   rating: number
   poster: string
-  addedDate?: string
+  added_date?: string
   watchedDate?: string
+  date_watched?: string
   points?: number
+  points_earned?: number
 }
 
 export function MovieDashboard() {
-  const [watchlist, setWatchlist] = useState<Movie[]>([
-    {
-      id: 1,
-      title: "Oppenheimer",
-      year: 2023,
-      rating: 8.5,
-      addedDate: "2024-12-01",
-      poster: "/oppenheimer.jpg",
-    },
-    {
-      id: 2,
-      title: "The Killers of the Flower Moon",
-      year: 2023,
-      rating: 8.0,
-      addedDate: "2024-12-02",
-      poster: "/killers-flower-moon.jpg",
-    },
-  ])
-
-  const [watched, setWatched] = useState<Movie[]>([
-    {
-      id: 3,
-      title: "Dune: Part Two",
-      year: 2024,
-      rating: 8.3,
-      watchedDate: "2024-11-15",
-      poster: "/dune-part-two.jpg",
-      points: 50,
-    },
-    {
-      id: 4,
-      title: "Killers of the Flower Moon",
-      year: 2023,
-      rating: 8.0,
-      watchedDate: "2024-11-20",
-      poster: "/killers-flower-moon.jpg",
-      points: 50,
-    },
-  ])
-
+  const [watchlist, setWatchlist] = useState<Movie[]>([])
+  const [watched, setWatched] = useState<Movie[]>([])
   const [activeTab, setActiveTab] = useState<"watchlist" | "watched">("watchlist")
+  const [loading, setLoading] = useState(true)
+
+  const fetchWatchlist = useCallback(async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/movies/watchlist`)
+      if (response.ok) {
+        const data = await response.json()
+        setWatchlist(data.movies || [])
+      } else {
+        console.error("Error fetching watchlist:", response.status, response.statusText)
+      }
+    } catch (error) {
+      console.error("Error fetching watchlist:", error)
+    }
+  }, [])
+
+  const fetchWatched = useCallback(async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/movies/watched`)
+      if (response.ok) {
+        const data = await response.json()
+        const watchedMovies = (data.movies || []).map((m: any) => ({
+          ...m,
+          watchedDate: m.date_watched,
+          points: m.points_earned,
+        }))
+        setWatched(watchedMovies)
+      } else {
+        console.error("Error fetching watched movies:", response.status, response.statusText)
+      }
+    } catch (error) {
+      console.error("Error fetching watched movies:", error)
+    }
+  }, [])
+
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true)
+      await Promise.all([fetchWatchlist(), fetchWatched()])
+      setLoading(false)
+    }
+    loadData()
+  }, [fetchWatchlist, fetchWatched])
 
   const markAsWatched = useCallback(
-    (movieId: number) => {
-      const movie = watchlist.find((m) => m.id === movieId)
-      if (movie) {
-        const watchedMovie = {
-          ...movie,
-          watchedDate: new Date().toISOString().split("T")[0],
-          points: 50,
+    async (movieId: number) => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/movies/mark-watched`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            movie_id: movieId,
+            date_watched: new Date().toISOString(),
+          }),
+        })
+
+        if (response.ok) {
+          await Promise.all([fetchWatchlist(), fetchWatched()])
         }
-        setWatched((prev) => [...prev, watchedMovie])
-        setWatchlist((prev) => prev.filter((m) => m.id !== movieId))
+      } catch (error) {
+        console.error("Error marking movie as watched:", error)
       }
     },
-    [watchlist],
+    [fetchWatchlist, fetchWatched],
   )
 
-  const removeWatched = useCallback((movieId: number) => {
-    setWatched((prev) => prev.filter((m) => m.id !== movieId))
-  }, [])
+  const removeWatched = useCallback(
+    async (movieId: number) => {
+      await fetchWatched()
+    },
+    [fetchWatched],
+  )
+
+  const handleMovieAdded = useCallback(() => {
+    fetchWatchlist()
+  }, [fetchWatchlist])
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-8">
-        <SearchMovies />
+        <SearchMovies onMovieAdded={handleMovieAdded} />
       </div>
 
       <div className="mb-8 border-b border-border">
@@ -109,18 +131,38 @@ export function MovieDashboard() {
         </div>
       </div>
 
-      {activeTab === "watchlist" && (
-        <div>
-          <h2 className="mb-6 text-2xl font-bold text-foreground">Mi Lista</h2>
-          <MovieList movies={watchlist} type="watchlist" onMarkWatched={markAsWatched} />
+      {loading ? (
+        <div className="flex items-center justify-center py-12">
+          <p className="text-muted-foreground">Cargando...</p>
         </div>
-      )}
+      ) : (
+        <>
+          {activeTab === "watchlist" && (
+            <div>
+              <h2 className="mb-6 text-2xl font-bold text-foreground">Mi Lista</h2>
+              {watchlist.length > 0 ? (
+                <MovieList movies={watchlist} type="watchlist" onMarkWatched={markAsWatched} />
+              ) : (
+                <div className="rounded-lg border border-dashed border-border p-8 text-center">
+                  <p className="text-muted-foreground">No hay películas en tu lista. Busca y agrega algunas películas.</p>
+                </div>
+              )}
+            </div>
+          )}
 
-      {activeTab === "watched" && (
-        <div>
-          <h2 className="mb-6 text-2xl font-bold text-foreground">Películas Vistas</h2>
-          <MovieList movies={watched} type="watched" onRemove={removeWatched} />
-        </div>
+          {activeTab === "watched" && (
+            <div>
+              <h2 className="mb-6 text-2xl font-bold text-foreground">Películas Vistas</h2>
+              {watched.length > 0 ? (
+                <MovieList movies={watched} type="watched" onRemove={removeWatched} />
+              ) : (
+                <div className="rounded-lg border border-dashed border-border p-8 text-center">
+                  <p className="text-muted-foreground">Aún no has visto ninguna película.</p>
+                </div>
+              )}
+            </div>
+          )}
+        </>
       )}
     </div>
   )

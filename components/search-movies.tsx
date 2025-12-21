@@ -12,7 +12,11 @@ interface SearchResult {
   poster: string
 }
 
-export function SearchMovies() {
+interface SearchMoviesProps {
+  onMovieAdded?: () => void
+}
+
+export function SearchMovies({ onMovieAdded }: SearchMoviesProps) {
   const [search, setSearch] = useState("")
   const [results, setResults] = useState<SearchResult[]>([])
   const [loading, setLoading] = useState(false)
@@ -51,6 +55,9 @@ export function SearchMovies() {
 
       if (response.ok) {
         setResults(results.filter((m) => m.id !== movie.id))
+        if (onMovieAdded) {
+          onMovieAdded()
+        }
       }
     } catch (error) {
       console.error("Error adding movie:", error)
