@@ -406,11 +406,13 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/sonner/dist/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/input.tsx [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -420,17 +422,27 @@ function SearchMovies({ onMovieAdded }) {
     const [results, setResults] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [showResults, setShowResults] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const handleSearch = async ()=>{
         if (!search.trim()) return;
         setLoading(true);
+        setError(null);
         try {
             const response = await fetch(`/api/movies/search?q=${encodeURIComponent(search)}`);
             const data = await response.json();
-            setResults(data.results || []);
+            if (!response.ok && data.error) {
+                setError(data.error);
+                setResults([]);
+            } else {
+                setResults(data.results || []);
+                setError(null);
+            }
             setShowResults(true);
         } catch (error) {
             console.error("Error searching movies:", error);
+            setError("Error al conectar con la API. Verifica tu conexión.");
             setResults([]);
+            setShowResults(true);
         } finally{
             setLoading(false);
         }
@@ -451,13 +463,24 @@ function SearchMovies({ onMovieAdded }) {
                 })
             });
             if (response.ok) {
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success(`${movie.title} agregada a tu lista`, {
+                    description: `${movie.year} • ⭐ ${movie.rating}`
+                });
                 setResults(results.filter((m)=>m.id !== movie.id));
                 if (onMovieAdded) {
                     onMovieAdded();
                 }
+            } else {
+                const errorData = await response.json();
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error("Error al agregar película", {
+                    description: errorData.error || "No se pudo agregar la película"
+                });
             }
         } catch (error) {
             console.error("Error adding movie:", error);
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error("Error al agregar película", {
+                description: "No se pudo conectar con el servidor"
+            });
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -469,19 +492,19 @@ function SearchMovies({ onMovieAdded }) {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex-1",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                            placeholder: "Buscar película por título...",
+                            placeholder: "Buscar por título o director...",
                             value: search,
                             onChange: (e)=>setSearch(e.target.value),
                             onKeyDown: (e)=>e.key === "Enter" && handleSearch(),
                             className: "bg-input"
                         }, void 0, false, {
                             fileName: "[project]/components/search-movies.tsx",
-                            lineNumber: 71,
+                            lineNumber: 94,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/search-movies.tsx",
-                        lineNumber: 70,
+                        lineNumber: 93,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -491,21 +514,21 @@ function SearchMovies({ onMovieAdded }) {
                         children: loading ? "Buscando..." : "Buscar"
                     }, void 0, false, {
                         fileName: "[project]/components/search-movies.tsx",
-                        lineNumber: 79,
+                        lineNumber: 102,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/search-movies.tsx",
-                lineNumber: 69,
+                lineNumber: 92,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                 className: "mt-3 text-xs text-muted-foreground",
-                children: "Escribe el nombre de una película para agregarla a tu lista"
+                children: "Busca películas por título o director para agregarlas a tu lista"
             }, void 0, false, {
                 fileName: "[project]/components/search-movies.tsx",
-                lineNumber: 83,
+                lineNumber: 106,
                 columnNumber: 7
             }, this),
             showResults && results.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -519,7 +542,7 @@ function SearchMovies({ onMovieAdded }) {
                                 className: "h-40 w-full object-cover"
                             }, void 0, false, {
                                 fileName: "[project]/components/search-movies.tsx",
-                                lineNumber: 89,
+                                lineNumber: 112,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -530,7 +553,7 @@ function SearchMovies({ onMovieAdded }) {
                                         children: movie.title
                                     }, void 0, false, {
                                         fileName: "[project]/components/search-movies.tsx",
-                                        lineNumber: 91,
+                                        lineNumber: 114,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -542,7 +565,7 @@ function SearchMovies({ onMovieAdded }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/search-movies.tsx",
-                                        lineNumber: 92,
+                                        lineNumber: 115,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -552,49 +575,74 @@ function SearchMovies({ onMovieAdded }) {
                                         children: "Agregar"
                                     }, void 0, false, {
                                         fileName: "[project]/components/search-movies.tsx",
-                                        lineNumber: 95,
+                                        lineNumber: 118,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/search-movies.tsx",
-                                lineNumber: 90,
+                                lineNumber: 113,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, movie.id, true, {
                         fileName: "[project]/components/search-movies.tsx",
-                        lineNumber: 88,
+                        lineNumber: 111,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/search-movies.tsx",
-                lineNumber: 86,
+                lineNumber: 109,
                 columnNumber: 9
             }, this),
-            showResults && results.length === 0 && !loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            showResults && error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-6 rounded-lg border border-dashed border-red-500/50 bg-red-500/10 p-8 text-center",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-red-500 font-medium",
+                        children: error
+                    }, void 0, false, {
+                        fileName: "[project]/components/search-movies.tsx",
+                        lineNumber: 133,
+                        columnNumber: 11
+                    }, this),
+                    error.includes("TMDB_API_KEY") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "mt-2 text-xs text-muted-foreground",
+                        children: "Crea un archivo .env.local en la raíz del proyecto con: TMDB_API_KEY=tu_api_key"
+                    }, void 0, false, {
+                        fileName: "[project]/components/search-movies.tsx",
+                        lineNumber: 135,
+                        columnNumber: 13
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/search-movies.tsx",
+                lineNumber: 132,
+                columnNumber: 9
+            }, this),
+            showResults && results.length === 0 && !loading && !error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mt-6 rounded-lg border border-dashed border-border p-8 text-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-muted-foreground",
                     children: "No se encontraron películas. Intenta con otro término."
                 }, void 0, false, {
                     fileName: "[project]/components/search-movies.tsx",
-                    lineNumber: 110,
+                    lineNumber: 144,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/search-movies.tsx",
-                lineNumber: 109,
+                lineNumber: 143,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/search-movies.tsx",
-        lineNumber: 68,
+        lineNumber: 91,
         columnNumber: 5
     }, this);
 }
-_s(SearchMovies, "QRzyIn6I0V54gfMg+yW6eVCJE3s=");
+_s(SearchMovies, "bmEnG+SVmJ0dv/RI0gEoQ+e4yyo=");
 _c = SearchMovies;
 var _c;
 __turbopack_context__.k.register(_c, "SearchMovies");

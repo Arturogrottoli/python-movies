@@ -1,86 +1,24 @@
-[00:00:10.302] Server  LOG      ✓ Ready in 7.5s
-[00:00:14.586] Server  LOG      ○ Compiling / ...
-[00:00:24.549] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:24.629] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:25.234] Browser ERROR   Error fetching total points: {}
-[00:00:25.234] Browser ERROR   Error fetching watchlist: {}
-[00:00:25.234] Browser ERROR   Error fetching watched movies: {}
-[00:00:25.235] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:25.235] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:25.236] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766330982696}
-[00:00:25.237] Browser ERROR   Error fetching total points: {}
-[00:00:25.237] Browser ERROR   Error fetching watchlist: {}
-[00:00:25.237] Browser ERROR   Error fetching watched movies: {}
-[00:00:25.237] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:25.237] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:25.237] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766330982805}
-[00:00:31.227] Browser ERROR   Error fetching total points: {}
-[00:00:31.228] Browser ERROR   Error fetching total points: {}
-[00:00:36.228] Browser ERROR   Error fetching total points: {}
-[00:00:36.229] Browser ERROR   Error fetching total points: {}
-[00:00:41.248] Browser ERROR   Error fetching total points: {}
-[00:00:41.254] Browser ERROR   Error fetching total points: {}
-[00:00:46.228] Browser ERROR   Error fetching total points: {}
-[00:00:46.229] Browser ERROR   Error fetching total points: {}
-[00:00:51.227] Browser ERROR   Error fetching total points: {}
-[00:00:51.227] Browser ERROR   Error fetching total points: {}
-[00:00:56.227] Browser ERROR   Error fetching total points: {}
-[00:00:56.227] Browser ERROR   Error fetching total points: {}
-[00:01:33.241] Browser ERROR   Error fetching total points: {}
-[00:01:33.242] Browser ERROR   Error fetching total points: {}
-[00:02:33.243] Browser ERROR   Error fetching total points: {}
-[00:02:33.244] Browser ERROR   Error fetching total points: {}
-[00:03:33.239] Browser ERROR   Error fetching total points: {}
-[00:03:33.246] Browser ERROR   Error fetching total points: {}
-[00:04:33.236] Browser ERROR   Error fetching total points: {}
-[00:04:33.237] Browser ERROR   Error fetching total points: {}
-[00:05:33.263] Browser ERROR   Error fetching total points: {}
-[00:05:33.271] Browser ERROR   Error fetching total points: {}
-[00:06:33.237] Browser ERROR   Error fetching total points: {}
-[00:06:33.245] Browser ERROR   Error fetching total points: {}
-[00:07:33.244] Browser ERROR   Error fetching total points: {}
-[00:07:33.246] Browser ERROR   Error fetching total points: {}
-[00:08:33.235] Browser ERROR   Error fetching total points: {}
-[00:08:33.241] Browser ERROR   Error fetching total points: {}
-[00:09:33.236] Browser ERROR   Error fetching total points: {}
-[00:09:33.238] Browser ERROR   Error fetching total points: {}
-[00:10:33.239] Browser ERROR   Error fetching total points: {}
-[00:10:33.241] Browser ERROR   Error fetching total points: {}
-[00:11:33.243] Browser ERROR   Error fetching total points: {}
-[00:11:33.249] Browser ERROR   Error fetching total points: {}
-[00:12:33.239] Browser ERROR   Error fetching total points: {}
-[00:12:33.242] Browser ERROR   Error fetching total points: {}
-[00:13:33.242] Browser ERROR   Error fetching total points: {}
-[00:13:33.244] Browser ERROR   Error fetching total points: {}
-[00:14:33.230] Browser ERROR   Error fetching total points: {}
-[00:14:33.231] Browser ERROR   Error fetching total points: {}
-[00:15:33.240] Browser ERROR   Error fetching total points: {}
-[00:15:33.243] Browser ERROR   Error fetching total points: {}
-[00:16:33.232] Browser ERROR   Error fetching total points: {}
-[00:16:33.233] Browser ERROR   Error fetching total points: {}
-[00:17:33.240] Browser ERROR   Error fetching total points: {}
-[00:17:33.242] Browser ERROR   Error fetching total points: {}
-[00:18:33.244] Browser ERROR   Error fetching total points: {}
-[00:18:33.245] Browser ERROR   Error fetching total points: {}
-[00:18:39.674] Browser ERROR   Error fetching total points: {}
-[00:18:46.229] Browser ERROR   Error fetching total points: {}
-[00:18:51.228] Browser ERROR   Error fetching total points: {}
-[00:18:56.227] Browser ERROR   Error fetching total points: {}
-[00:19:01.231] Browser ERROR   Error fetching total points: {}
-[00:19:06.230] Browser ERROR   Error fetching total points: {}
-[00:19:11.228] Browser ERROR   Error fetching total points: {}
-[00:19:16.229] Browser ERROR   Error fetching total points: {}
-[00:19:21.227] Browser ERROR   Error fetching total points: {}
-[00:19:26.227] Browser ERROR   Error fetching total points: {}
-[00:19:31.228] Browser ERROR   Error fetching total points: {}
-[00:19:33.239] Browser ERROR   Error fetching total points: {}
-[00:19:36.227] Browser ERROR   Error fetching total points: {}
-[00:19:41.235] Browser ERROR   Error fetching total points: {}
-[00:20:33.247] Browser ERROR   Error fetching total points: {}
-[00:20:33.252] Browser ERROR   Error fetching total points: {}
-[00:21:33.266] Browser ERROR   Error fetching total points: {}
-[00:21:33.268] Browser ERROR   Error fetching total points: {}
-[00:22:33.232] Browser ERROR   Error fetching total points: {}
-[00:22:33.240] Browser ERROR   Error fetching total points: {}
-[00:23:33.254] Browser ERROR   Error fetching total points: {}
-[00:23:33.264] Browser ERROR   Error fetching total points: {}
+[00:00:00.747] Server  LOG      ✓ Ready in 526ms
+[00:00:05.986] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:06.077] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:06.144] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:06.144] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:06.144] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766441356274}
+[00:00:06.789] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:06.789] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:06.789] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766441356436}
+[00:01:41.832] Server  LOG      ✓ Compiled in 0ms
+[00:01:42.343] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:42.534] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:42.538] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:42.538] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:01:42.538] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766441452675}
+[00:01:42.649] Server  LOG      ✓ Compiled in 169ms
+[00:01:42.789] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:42.789] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:01:42.789] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766441452846}
+[00:01:46.960] Server  LOG      ✓ Compiled in 151ms
+[00:02:21.332] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:21.454] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:21.454] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:02:21.454] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766441491595}

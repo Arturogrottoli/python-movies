@@ -10,8 +10,17 @@ export async function GET(request: Request) {
     return Response.json({ results: [] })
   }
 
+  if (!TMDB_API_KEY) {
+    return Response.json(
+      { 
+        results: [], 
+        error: "TMDB_API_KEY no está configurada. Por favor, crea un archivo .env.local con tu API key de TMDB." 
+      }, 
+      { status: 400 }
+    )
+  }
+
   try {
-    if (TMDB_API_KEY) {
       const [movieResponse, personResponse] = await Promise.all([
         fetch(
           `${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}&language=es-ES`
@@ -20,6 +29,11 @@ export async function GET(request: Request) {
           `${TMDB_BASE_URL}/search/person?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}&language=es-ES`
         ),
       ])
+
+      if (!movieResponse.ok && !personResponse.ok) {
+        console.error("TMDB API error:", movieResponse.status, personResponse.status)
+        throw new Error("TMDB API request failed")
+      }
 
       const movieResults = movieResponse.ok ? await movieResponse.json() : { results: [] }
       const personResults = personResponse.ok ? await personResponse.json() : { results: [] }
@@ -42,12 +56,15 @@ export async function GET(request: Request) {
             )
             if (directorMoviesResponse.ok) {
               const directorMovies = await directorMoviesResponse.json()
-              directorMovies.crew
+              const directedMovies = directorMovies.crew
                 ?.filter((credit: any) => credit.job === "Director")
-                .slice(0, 5)
-                .forEach((credit: any) => {
+                .slice(0, 10) || []
+              
+              directedMovies.forEach((credit: any) => {
+                if (credit.id) {
                   allMovieIds.add(credit.id)
-                })
+                }
+              })
             }
           } catch (e) {
             console.error("Error fetching director movies:", e)
@@ -87,222 +104,12 @@ export async function GET(request: Request) {
         }
       })
 
-      return Response.json({ results })
-    } else {
-      const mockMovies = [
-        {
-          id: 1,
-          title: "Oppenheimer",
-          year: 2023,
-          rating: 8.5,
-          poster: "/oppenheimer.jpg",
-          director: "Christopher Nolan",
-        },
-        {
-          id: 2,
-          title: "The Killers of the Flower Moon",
-          year: 2023,
-          rating: 8.0,
-          poster: "/killers-flower-moon.jpg",
-          director: "Martin Scorsese",
-        },
-        {
-          id: 3,
-          title: "Dune: Part Two",
-          year: 2024,
-          rating: 8.3,
-          poster: "/dune-part-two.jpg",
-          director: "Denis Villeneuve",
-        },
-        {
-          id: 4,
-          title: "Inception",
-          year: 2010,
-          rating: 8.8,
-          poster: "/placeholder.svg",
-          director: "Christopher Nolan",
-        },
-        {
-          id: 5,
-          title: "Interstellar",
-          year: 2014,
-          rating: 8.7,
-          poster: "/placeholder.svg",
-          director: "Christopher Nolan",
-        },
-        {
-          id: 6,
-          title: "The Dark Knight",
-          year: 2008,
-          rating: 9.0,
-          poster: "/placeholder.svg",
-          director: "Christopher Nolan",
-        },
-        {
-          id: 7,
-          title: "Pulp Fiction",
-          year: 1994,
-          rating: 8.9,
-          poster: "/placeholder.svg",
-          director: "Quentin Tarantino",
-        },
-        {
-          id: 8,
-          title: "Django Unchained",
-          year: 2012,
-          rating: 8.4,
-          poster: "/placeholder.svg",
-          director: "Quentin Tarantino",
-        },
-        {
-          id: 9,
-          title: "The Matrix",
-          year: 1999,
-          rating: 8.7,
-          poster: "/placeholder.svg",
-          director: "Lana Wachowski, Lilly Wachowski",
-        },
-        {
-          id: 10,
-          title: "Blade Runner 2049",
-          year: 2017,
-          rating: 8.0,
-          poster: "/placeholder.svg",
-          director: "Denis Villeneuve",
-        },
-        {
-          id: 11,
-          title: "Arrival",
-          year: 2016,
-          rating: 7.9,
-          poster: "/placeholder.svg",
-          director: "Denis Villeneuve",
-        },
-        {
-          id: 12,
-          title: "Goodfellas",
-          year: 1990,
-          rating: 8.7,
-          poster: "/placeholder.svg",
-          director: "Martin Scorsese",
-        },
-        {
-          id: 13,
-          title: "Taxi Driver",
-          year: 1976,
-          rating: 8.2,
-          poster: "/placeholder.svg",
-          director: "Martin Scorsese",
-        },
-        {
-          id: 14,
-          title: "Fight Club",
-          year: 1999,
-          rating: 8.8,
-          poster: "/placeholder.svg",
-          director: "David Fincher",
-        },
-        {
-          id: 15,
-          title: "The Social Network",
-          year: 2010,
-          rating: 7.8,
-          poster: "/placeholder.svg",
-          director: "David Fincher",
-        },
-        {
-          id: 16,
-          title: "Parasite",
-          year: 2019,
-          rating: 8.5,
-          poster: "/placeholder.svg",
-          director: "Bong Joon-ho",
-        },
-        {
-          id: 17,
-          title: "Everything Everywhere All at Once",
-          year: 2022,
-          rating: 8.1,
-          poster: "/placeholder.svg",
-          director: "Daniel Kwan, Daniel Scheinert",
-        },
-        {
-          id: 18,
-          title: "The Grand Budapest Hotel",
-          year: 2014,
-          rating: 8.1,
-          poster: "/placeholder.svg",
-          director: "Wes Anderson",
-        },
-        {
-          id: 19,
-          title: "Mad Max: Fury Road",
-          year: 2015,
-          rating: 8.1,
-          poster: "/placeholder.svg",
-          director: "George Miller",
-        },
-        {
-          id: 20,
-          title: "The Shawshank Redemption",
-          year: 1994,
-          rating: 9.3,
-          poster: "/placeholder.svg",
-          director: "Frank Darabont",
-        },
-        {
-          id: 21,
-          title: "The Godfather",
-          year: 1972,
-          rating: 9.2,
-          poster: "/placeholder.svg",
-          director: "Francis Ford Coppola",
-        },
-        {
-          id: 22,
-          title: "The Godfather Part II",
-          year: 1974,
-          rating: 9.0,
-          poster: "/placeholder.svg",
-          director: "Francis Ford Coppola",
-        },
-        {
-          id: 23,
-          title: "Spirited Away",
-          year: 2001,
-          rating: 8.6,
-          poster: "/placeholder.svg",
-          director: "Hayao Miyazaki",
-        },
-        {
-          id: 24,
-          title: "Whiplash",
-          year: 2014,
-          rating: 8.5,
-          poster: "/placeholder.svg",
-          director: "Damien Chazelle",
-        },
-        {
-          id: 25,
-          title: "La La Land",
-          year: 2016,
-          rating: 8.0,
-          poster: "/placeholder.svg",
-          director: "Damien Chazelle",
-        },
-      ]
-
-      const queryLower = query.toLowerCase()
-      const results = mockMovies.filter((movie) => {
-        const titleMatch = movie.title.toLowerCase().includes(queryLower)
-        const directorMatch = movie.director?.toLowerCase().includes(queryLower) || false
-        return titleMatch || directorMatch
-      })
-
-      return Response.json({ results })
-    }
+      return Response.json({ results: results.slice(0, 20) })
   } catch (error) {
     console.error("TMDB API Error:", error)
-    return Response.json({ results: [], error: "Search failed" }, { status: 500 })
+    return Response.json({ 
+      results: [], 
+      error: error instanceof Error ? error.message : "Error al buscar películas en TMDB" 
+    }, { status: 500 })
   }
 }

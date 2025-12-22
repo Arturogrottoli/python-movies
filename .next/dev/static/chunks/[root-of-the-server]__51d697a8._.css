@@ -167,6 +167,7 @@
     --color-red-50: #fef2f2;
     --color-red-300: #ffa3a3;
     --color-red-400: #ff6568;
+    --color-red-500: #fb2c36;
     --color-red-600: #e40014;
     --color-black: #000;
     --color-white: #fff;
@@ -212,6 +213,7 @@
       --color-red-50: lab(96.5005% 4.18508 1.52328);
       --color-red-300: lab(76.5514% 36.422 15.5335);
       --color-red-400: lab(63.7053% 60.745 31.3109);
+      --color-red-500: lab(55.4814% 75.0732 48.8528);
       --color-red-600: lab(48.4493% 77.4328 61.5452);
     }
   }
@@ -1609,6 +1611,16 @@
     border-color: var(--primary);
   }
 
+  .border-red-500\/50 {
+    border-color: #fb2c3680;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-red-500\/50 {
+      border-color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
+    }
+  }
+
   .border-sidebar-border {
     border-color: var(--sidebar-border);
   }
@@ -1716,6 +1728,16 @@
   @supports (color: color-mix(in lab, red, red)) {
     .bg-primary\/20 {
       background-color: color-mix(in oklab, var(--primary) 20%, transparent);
+    }
+  }
+
+  .bg-red-500\/10 {
+    background-color: #fb2c361a;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-red-500\/10 {
+      background-color: color-mix(in oklab, var(--color-red-500) 10%, transparent);
     }
   }
 
@@ -2113,6 +2135,10 @@
     color: var(--primary-foreground);
   }
 
+  .text-red-500 {
+    color: var(--color-red-500);
+  }
+
   .text-secondary-foreground {
     color: var(--secondary-foreground);
   }
@@ -2371,6 +2397,10 @@
 
   .\[--cell-size\:--spacing\(8\)\] {
     --cell-size: calc(var(--spacing) * 8);
+  }
+
+  .running {
+    animation-play-state: running;
   }
 
   .group-focus-within\/menu-item\:opacity-100:is(:where(.group\/menu-item):focus-within *) {

@@ -8,7 +8,7 @@ Un juego interactivo para anotar las películas que quieres ver y sumar puntos a
 
 - 📝 **Agregar películas a tu lista**: Busca y agrega películas que quieres ver
 - ✅ **Marcar como vistas**: Cuando termines de ver una película, márcala y gana puntos
-- 🏆 **Sistema de puntos**: 
+- 🏆 **Sistema de puntos**:
   - **50 puntos base** por cada película vista
   - **+50 puntos bonus** si la ves el mismo día que la agregaste
   - **+30 puntos bonus** si la ves dentro de los 7 días siguientes
@@ -25,11 +25,11 @@ Antes de comenzar, asegúrate de tener instalado:
 - **Git** - [Descargar](https://git-scm.com/downloads)
 - Un navegador web moderno (Chrome, Firefox, Edge, etc.)
 
-## 📥 Instalación desde GitHub
+## 📥 Instalación
 
-### Paso 1: Clonar el repositorio
+### Si clonas desde GitHub
 
-Abre una terminal (o PowerShell en Windows, Terminal en Mac/Linux) y ejecuta:
+Abre una terminal y ejecuta:
 
 ```bash
 git clone https://github.com/tu-usuario/python-movies.git
@@ -38,96 +38,168 @@ cd python-movies
 
 > ⚠️ **Nota**: Reemplaza `tu-usuario` con el nombre de usuario de GitHub donde está alojado el repositorio.
 
+### Paso 1: Instalar dependencias del Frontend (Next.js)
+
+Desde la raíz del proyecto, ejecuta:
+
+```bash
+npm install
+```
+
+O si usas `pnpm`:
+
+```bash
+pnpm install
+```
+
 ### Paso 2: Configurar el Backend (Python)
 
 1. **Navega a la carpeta de Python**:
+
    ```bash
    cd python
    ```
 
-2. **Crea un entorno virtual** (recomendado):
-   ```bash
-   # En Windows
-   python -m venv venv
-   venv\Scripts\activate
+2. **Activa el entorno virtual**:
 
+   Si el entorno virtual ya existe (carpeta `venv`), solo actívalo:
+
+   ```bash
+   # En Mac/Linux
+   source venv/bin/activate
+
+   # En Windows
+   venv\Scripts\activate
+   ```
+
+   Si el entorno virtual NO existe, créalo primero:
+
+   ```bash
    # En Mac/Linux
    python3 -m venv venv
    source venv/bin/activate
+
+   # En Windows
+   python -m venv venv
+   venv\Scripts\activate
    ```
 
 3. **Instala las dependencias**:
+
    ```bash
    pip install -r requirements.txt
    ```
 
    Esto instalará todas las librerías necesarias:
+
    - FastAPI (framework web)
    - SQLite (base de datos)
    - Google APIs (para exportación a Google Sheets)
    - Y otras dependencias necesarias
 
-### Paso 3: Configurar el Frontend (Next.js)
+### Paso 3: Configurar API Key de TMDB (Requerido)
 
-1. **Abre una nueva terminal** y vuelve a la raíz del proyecto:
-   ```bash
-   cd ..
-   ```
+La aplicación requiere una API key de TMDB (The Movie Database) para buscar películas. Sigue estos pasos:
 
-2. **Instala las dependencias de Node.js**:
-   ```bash
-   npm install
-   ```
-   
-   O si usas `pnpm` (que parece estar configurado en el proyecto):
-   ```bash
-   pnpm install
-   ```
+#### 1. Obtener tu API Key
+
+1. Ve a [The Movie Database](https://www.themoviedb.org/) y crea una cuenta gratuita o inicia sesión
+2. Navega a [Settings → API](https://www.themoviedb.org/settings/api)
+3. Haz clic en **"Request an API Key"**
+4. Completa el formulario:
+   - **Tipo**: Selecciona "Developer"
+   - **Aplicación**: Movie Points Tracker (o el nombre que prefieras)
+   - **URL**: `http://localhost:3000`
+   - **Descripción**: Aplicación para trackear películas y puntos
+5. Acepta los términos y condiciones
+6. Copia la **"Clave de la API"** (API Key) que te proporcionen
+
+#### 2. Configurar la API Key en el proyecto
+
+Crea un archivo `.env.local` en la raíz del proyecto (misma carpeta que `package.json`) con el siguiente contenido:
+
+```bash
+TMDB_API_KEY=tu_api_key_aqui
+```
+
+Reemplaza `tu_api_key_aqui` con la API key que copiaste.
+
+**Ejemplo:**
+
+```bash
+TMDB_API_KEY=36352c65fdc6621b11e5ea387a678ce7
+```
+
+> ⚠️ **Importante**:
+>
+> - El archivo `.env.local` ya está en `.gitignore`, así que tu API key no se subirá al repositorio
+> - Después de crear o modificar `.env.local`, **debes reiniciar el servidor de Next.js** para que tome la nueva variable de entorno
+> - La API key es gratuita y necesaria para que la búsqueda de películas funcione correctamente
 
 ## ▶️ Cómo Ejecutar el Proyecto
 
-El proyecto tiene dos partes que deben ejecutarse simultáneamente:
+⚠️ **Importante**: El proyecto necesita DOS terminales abiertas simultáneamente (una para el backend y otra para el frontend).
 
-### Opción A: Ejecutar en Terminales Separadas (Recomendado)
+### Terminal 1 - Backend (Python/FastAPI)
 
-**Terminal 1 - Backend (Python/FastAPI):**
+1. Navega a la carpeta `python`:
 
-```bash
-cd python
-# Activa el entorno virtual si no está activo
-# Windows: venv\Scripts\activate
-# Mac/Linux: source venv/bin/activate
+   ```bash
+   cd python
+   ```
 
-python main.py
-```
+2. Activa el entorno virtual (si no está activo):
 
-Verás un mensaje como:
-```
-INFO:     Uvicorn running on http://0.0.0.0:8000
-```
+   ```bash
+   # Mac/Linux
+   source venv/bin/activate
 
-**Terminal 2 - Frontend (Next.js):**
+   # Windows
+   venv\Scripts\activate
+   ```
 
-```bash
-# Desde la raíz del proyecto
-npm run dev
-# o
-pnpm dev
-```
+3. Ejecuta el servidor:
 
-Verás un mensaje como:
-```
-- ready started server on 0.0.0.0:3000
-- Local:        http://localhost:3000
-```
+   ```bash
+   python main.py
+   ```
 
-### Opción B: Usar el Script de Ejecución (si existe)
+   Verás un mensaje como:
 
-Si hay un script `run.sh` o similar, puedes ejecutarlo:
-```bash
-cd python
-bash run.sh
-```
+   ```
+   INFO:     Uvicorn running on http://0.0.0.0:8000
+   ```
+
+   ⚠️ **Deja esta terminal corriendo** - no la cierres.
+
+### Terminal 2 - Frontend (Next.js)
+
+1. Abre una **nueva terminal** y navega a la raíz del proyecto:
+
+   ```bash
+   cd /ruta/a/python-movies
+   ```
+
+2. Ejecuta el servidor de desarrollo:
+
+   ```bash
+   npm run dev
+   ```
+
+   O si usas pnpm:
+
+   ```bash
+   pnpm dev
+   ```
+
+   Verás un mensaje como:
+
+   ```
+   - ready started server on 0.0.0.0:3000
+   - Local:        http://localhost:3000
+   ```
+
+   ⚠️ **Deja esta terminal corriendo también** - no la cierres.
 
 ## 🌐 Acceder a la Aplicación
 
@@ -137,6 +209,7 @@ Una vez que ambos servidores estén corriendo:
 2. Ve a: **http://localhost:3000**
 
 Deberías ver la interfaz de Movie Points Tracker con:
+
 - Un encabezado mostrando tus puntos totales
 - Secciones para buscar películas
 - Tu lista de películas por ver
@@ -178,6 +251,7 @@ python google_drive_export.py
 Esto creará un archivo `movies_export.csv` con todas tus películas.
 
 O usa la API directamente:
+
 ```bash
 curl -X POST http://localhost:8000/api/export/csv
 ```
@@ -216,6 +290,7 @@ Para exportar a Google Sheets, necesitas configurar credenciales de Google Cloud
 ### La base de datos no se crea
 
 La base de datos se crea automáticamente la primera vez que usas la aplicación. Si hay problemas:
+
 - Verifica permisos de escritura en la carpeta `python/`
 - Asegúrate de que el backend tenga acceso al directorio
 
@@ -239,11 +314,13 @@ python-movies/
 ## 🛠️ Tecnologías Utilizadas
 
 ### Backend
+
 - **FastAPI**: Framework web moderno y rápido
 - **SQLite**: Base de datos ligera y fácil de usar
 - **Python 3.9+**: Lenguaje de programación
 
 ### Frontend
+
 - **Next.js 16**: Framework React para aplicaciones web
 - **React 19**: Librería para interfaces de usuario
 - **TypeScript**: Tipado estático para JavaScript
@@ -281,4 +358,3 @@ Este proyecto es de código abierto y está disponible bajo la licencia que espe
 ---
 
 ¡Disfruta trackeando tus películas y acumulando puntos! 🎬✨
-

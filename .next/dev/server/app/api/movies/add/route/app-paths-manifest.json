@@ -1,0 +1,3 @@
+{
+  "/api/movies/add/route": "app/api/movies/add/route.js"
+}

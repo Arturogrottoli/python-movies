@@ -53,71 +53,89 @@ async function GET(request) {
             results: []
         });
     }
+    if (!TMDB_API_KEY) {
+        return Response.json({
+            results: [],
+            error: "TMDB_API_KEY no está configurada. Por favor, crea un archivo .env.local con tu API key de TMDB."
+        }, {
+            status: 400
+        });
+    }
     try {
-        if (TMDB_API_KEY) {
-            const response = await fetch(`${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}&language=es-ES`);
-            if (!response.ok) {
-                throw new Error("TMDB API request failed");
-            }
-            const data = await response.json();
-            const results = data.results.slice(0, 20).map((movie)=>({
-                    id: movie.id,
-                    title: movie.title,
-                    year: movie.release_date ? new Date(movie.release_date).getFullYear() : 0,
-                    rating: movie.vote_average || 0,
-                    poster: movie.poster_path ? `${TMDB_IMAGE_BASE_URL}${movie.poster_path}` : "/placeholder.svg"
-                }));
-            return Response.json({
-                results
-            });
-        } else {
-            const mockMovies = [
-                {
-                    id: 1,
-                    title: "Oppenheimer",
-                    year: 2023,
-                    rating: 8.5,
-                    poster: "/oppenheimer.jpg"
-                },
-                {
-                    id: 2,
-                    title: "The Killers of the Flower Moon",
-                    year: 2023,
-                    rating: 8.0,
-                    poster: "/killers-flower-moon.jpg"
-                },
-                {
-                    id: 3,
-                    title: "Dune: Part Two",
-                    year: 2024,
-                    rating: 8.3,
-                    poster: "/dune-part-two.jpg"
-                },
-                {
-                    id: 4,
-                    title: "Inception",
-                    year: 2010,
-                    rating: 8.8,
-                    poster: "/placeholder.svg"
-                },
-                {
-                    id: 5,
-                    title: "Interstellar",
-                    year: 2014,
-                    rating: 8.7,
-                    poster: "/placeholder.svg"
-                }
-            ];
-            const results = mockMovies.filter((movie)=>movie.title.toLowerCase().includes(query.toLowerCase()));
-            return Response.json({
-                results
-            });
+        const [movieResponse, personResponse] = await Promise.all([
+            fetch(`${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}&language=es-ES`),
+            fetch(`${TMDB_BASE_URL}/search/person?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}&language=es-ES`)
+        ]);
+        if (!movieResponse.ok && !personResponse.ok) {
+            console.error("TMDB API error:", movieResponse.status, personResponse.status);
+            throw new Error("TMDB API request failed");
         }
+        const movieResults = movieResponse.ok ? await movieResponse.json() : {
+            results: []
+        };
+        const personResults = personResponse.ok ? await personResponse.json() : {
+            results: []
+        };
+        const directorIds = new Set();
+        personResults.results.forEach((person)=>{
+            if (person.known_for_department === "Directing") {
+                directorIds.add(person.id);
+            }
+        });
+        const allMovieIds = new Set();
+        const movies = movieResults.results.slice(0, 15);
+        if (directorIds.size > 0) {
+            for (const directorId of Array.from(directorIds).slice(0, 3)){
+                try {
+                    const directorMoviesResponse = await fetch(`${TMDB_BASE_URL}/person/${directorId}/movie_credits?api_key=${TMDB_API_KEY}&language=es-ES`);
+                    if (directorMoviesResponse.ok) {
+                        const directorMovies = await directorMoviesResponse.json();
+                        const directedMovies = directorMovies.crew?.filter((credit)=>credit.job === "Director").slice(0, 10) || [];
+                        directedMovies.forEach((credit)=>{
+                            if (credit.id) {
+                                allMovieIds.add(credit.id);
+                            }
+                        });
+                    }
+                } catch (e) {
+                    console.error("Error fetching director movies:", e);
+                }
+            }
+        }
+        for (const movie of movies){
+            allMovieIds.add(movie.id);
+        }
+        const movieDetailsPromises = Array.from(allMovieIds).slice(0, 20).map(async (movieId)=>{
+            try {
+                const detailResponse = await fetch(`${TMDB_BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}&language=es-ES&append_to_response=credits`);
+                if (detailResponse.ok) {
+                    return await detailResponse.json();
+                }
+            } catch (e) {
+                console.error(`Error fetching movie ${movieId}:`, e);
+            }
+            return null;
+        });
+        const movieDetails = (await Promise.all(movieDetailsPromises)).filter((m)=>m !== null);
+        const results = movieDetails.map((movie)=>{
+            const director = movie.credits?.crew?.find((person)=>person.job === "Director");
+            return {
+                id: movie.id,
+                title: movie.title,
+                year: movie.release_date ? new Date(movie.release_date).getFullYear() : 0,
+                rating: movie.vote_average || 0,
+                poster: movie.poster_path ? `${TMDB_IMAGE_BASE_URL}${movie.poster_path}` : "/placeholder.svg",
+                director: director?.name || undefined
+            };
+        });
+        return Response.json({
+            results: results.slice(0, 20)
+        });
     } catch (error) {
         console.error("TMDB API Error:", error);
         return Response.json({
             results: [],
-            error: "Search failed"
+            error: error instanceof Error ? error.message : "Error al buscar películas en TMDB"
         }, {
             status: 500
         });
