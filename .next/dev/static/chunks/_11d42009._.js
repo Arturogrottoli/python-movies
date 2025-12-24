@@ -226,7 +226,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2
 "use client";
 ;
 ;
-function MovieList({ movies, type, onMarkWatched, onRemove }) {
+function MovieList({ movies, type, onMarkWatched, onRemove, onDeleteFromWatchlist }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "grid gap-6 sm:grid-cols-2 lg:grid-cols-4",
         children: movies.map((movie)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -241,23 +241,38 @@ function MovieList({ movies, type, onMarkWatched, onRemove }) {
                                 className: "h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 30,
+                                lineNumber: 31,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute bottom-0 left-0 right-0 p-4",
-                                    children: type === "watchlist" && onMarkWatched ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                        size: "sm",
-                                        onClick: ()=>onMarkWatched(movie.id),
-                                        className: "w-full bg-primary hover:bg-primary/90",
-                                        children: "Marcar como vista"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/movie-list.tsx",
-                                        lineNumber: 38,
-                                        columnNumber: 19
-                                    }, this) : type === "watched" && onRemove ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                    className: "absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-2",
+                                    children: type === "watchlist" && onMarkWatched ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                size: "sm",
+                                                onClick: ()=>onMarkWatched(movie.id),
+                                                className: "w-full bg-primary hover:bg-primary/90",
+                                                children: "Marcar como vista"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/movie-list.tsx",
+                                                lineNumber: 40,
+                                                columnNumber: 21
+                                            }, this),
+                                            onDeleteFromWatchlist && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                size: "sm",
+                                                onClick: ()=>onDeleteFromWatchlist(movie.id),
+                                                variant: "destructive",
+                                                className: "w-full",
+                                                children: "Eliminar"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/movie-list.tsx",
+                                                lineNumber: 48,
+                                                columnNumber: 23
+                                            }, this)
+                                        ]
+                                    }, void 0, true) : type === "watched" && onRemove ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                         size: "sm",
                                         onClick: ()=>onRemove(movie.id),
                                         variant: "secondary",
@@ -265,34 +280,34 @@ function MovieList({ movies, type, onMarkWatched, onRemove }) {
                                         children: "Eliminar"
                                     }, void 0, false, {
                                         fileName: "[project]/components/movie-list.tsx",
-                                        lineNumber: 46,
+                                        lineNumber: 59,
                                         columnNumber: 19
                                     }, this) : null
                                 }, void 0, false, {
                                     fileName: "[project]/components/movie-list.tsx",
-                                    lineNumber: 36,
+                                    lineNumber: 37,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 35,
+                                lineNumber: 36,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/movie-list.tsx",
-                        lineNumber: 29,
+                        lineNumber: 30,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "p-4",
+                        className: "p-4 relative",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                 className: "mb-1 line-clamp-2 text-sm font-semibold text-foreground",
                                 children: movie.title
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 55,
+                                lineNumber: 68,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -302,7 +317,7 @@ function MovieList({ movies, type, onMarkWatched, onRemove }) {
                                         children: movie.year
                                     }, void 0, false, {
                                         fileName: "[project]/components/movie-list.tsx",
-                                        lineNumber: 57,
+                                        lineNumber: 70,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -313,14 +328,48 @@ function MovieList({ movies, type, onMarkWatched, onRemove }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/movie-list.tsx",
-                                        lineNumber: 58,
+                                        lineNumber: 71,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 56,
+                                lineNumber: 69,
                                 columnNumber: 13
+                            }, this),
+                            type === "watchlist" && onDeleteFromWatchlist && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: (e)=>{
+                                    e.stopPropagation();
+                                    onDeleteFromWatchlist(movie.id);
+                                },
+                                className: "absolute top-2 right-2 rounded-full bg-destructive/80 hover:bg-destructive text-destructive-foreground p-1.5 opacity-0 group-hover:opacity-100 transition-opacity",
+                                "aria-label": "Eliminar película",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "16",
+                                    height: "16",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                        d: "M18 6L6 18M6 6l12 12"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/movie-list.tsx",
+                                        lineNumber: 93,
+                                        columnNumber: 19
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/components/movie-list.tsx",
+                                    lineNumber: 82,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/components/movie-list.tsx",
+                                lineNumber: 74,
+                                columnNumber: 15
                             }, this),
                             type === "watched" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "rounded bg-primary/10 px-2 py-1 text-center",
@@ -333,29 +382,29 @@ function MovieList({ movies, type, onMarkWatched, onRemove }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/movie-list.tsx",
-                                    lineNumber: 63,
+                                    lineNumber: 100,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 62,
+                                lineNumber: 99,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/movie-list.tsx",
-                        lineNumber: 54,
+                        lineNumber: 67,
                         columnNumber: 11
                     }, this)
                 ]
             }, movie.id, true, {
                 fileName: "[project]/components/movie-list.tsx",
-                lineNumber: 25,
+                lineNumber: 26,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/movie-list.tsx",
-        lineNumber: 23,
+        lineNumber: 24,
         columnNumber: 5
     }, this);
 }
@@ -675,10 +724,20 @@ function MovieDashboard() {
     const [watched, setWatched] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("watchlist");
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [currentUserId, setCurrentUserId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "MovieDashboard.useEffect": ()=>{
+            const savedUserId = localStorage.getItem("currentUserId");
+            if (savedUserId) {
+                setCurrentUserId(parseInt(savedUserId));
+            }
+        }
+    }["MovieDashboard.useEffect"], []);
     const fetchWatchlist = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "MovieDashboard.useCallback[fetchWatchlist]": async ()=>{
+            if (!currentUserId) return;
             try {
-                const response = await fetch(`${API_BASE_URL}/api/movies/watchlist`);
+                const response = await fetch(`${API_BASE_URL}/api/movies/watchlist?user_id=${currentUserId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setWatchlist(data.movies || []);
@@ -689,11 +748,14 @@ function MovieDashboard() {
                 console.error("Error fetching watchlist:", error);
             }
         }
-    }["MovieDashboard.useCallback[fetchWatchlist]"], []);
+    }["MovieDashboard.useCallback[fetchWatchlist]"], [
+        currentUserId
+    ]);
     const fetchWatched = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "MovieDashboard.useCallback[fetchWatched]": async ()=>{
+            if (!currentUserId) return;
             try {
-                const response = await fetch(`${API_BASE_URL}/api/movies/watched`);
+                const response = await fetch(`${API_BASE_URL}/api/movies/watched?user_id=${currentUserId}`);
                 if (response.ok) {
                     const data = await response.json();
                     const watchedMovies = (data.movies || []).map({
@@ -711,22 +773,31 @@ function MovieDashboard() {
                 console.error("Error fetching watched movies:", error);
             }
         }
-    }["MovieDashboard.useCallback[fetchWatched]"], []);
+    }["MovieDashboard.useCallback[fetchWatched]"], [
+        currentUserId
+    ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "MovieDashboard.useEffect": ()=>{
-            const loadData = {
-                "MovieDashboard.useEffect.loadData": async ()=>{
-                    setLoading(true);
-                    await Promise.all([
-                        fetchWatchlist(),
-                        fetchWatched()
-                    ]);
-                    setLoading(false);
-                }
-            }["MovieDashboard.useEffect.loadData"];
-            loadData();
+            if (currentUserId) {
+                const loadData = {
+                    "MovieDashboard.useEffect.loadData": async ()=>{
+                        setLoading(true);
+                        await Promise.all([
+                            fetchWatchlist(),
+                            fetchWatched()
+                        ]);
+                        setLoading(false);
+                    }
+                }["MovieDashboard.useEffect.loadData"];
+                loadData();
+            } else {
+                setWatchlist([]);
+                setWatched([]);
+                setLoading(false);
+            }
         }
     }["MovieDashboard.useEffect"], [
+        currentUserId,
         fetchWatchlist,
         fetchWatched
     ]);
@@ -764,6 +835,24 @@ function MovieDashboard() {
     }["MovieDashboard.useCallback[removeWatched]"], [
         fetchWatched
     ]);
+    const removeFromWatchlist = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "MovieDashboard.useCallback[removeFromWatchlist]": async (movieId)=>{
+            if (!currentUserId) return;
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/movies/${movieId}?user_id=${currentUserId}`, {
+                    method: "DELETE"
+                });
+                if (response.ok) {
+                    await fetchWatchlist();
+                }
+            } catch (error) {
+                console.error("Error removing movie from watchlist:", error);
+            }
+        }
+    }["MovieDashboard.useCallback[removeFromWatchlist]"], [
+        currentUserId,
+        fetchWatchlist
+    ]);
     const handleMovieAdded = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "MovieDashboard.useCallback[handleMovieAdded]": ()=>{
             fetchWatchlist();
@@ -771,6 +860,12 @@ function MovieDashboard() {
     }["MovieDashboard.useCallback[handleMovieAdded]"], [
         fetchWatchlist
     ]);
+    const handleUserChange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "MovieDashboard.useCallback[handleUserChange]": (userId)=>{
+            setCurrentUserId(userId);
+            localStorage.setItem("currentUserId", userId.toString());
+        }
+    }["MovieDashboard.useCallback[handleUserChange]"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8",
         children: [
@@ -780,12 +875,12 @@ function MovieDashboard() {
                     onMovieAdded: handleMovieAdded
                 }, void 0, false, {
                     fileName: "[project]/components/movie-dashboard.tsx",
-                    lineNumber: 106,
+                    lineNumber: 146,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/movie-dashboard.tsx",
-                lineNumber: 105,
+                lineNumber: 145,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -803,7 +898,7 @@ function MovieDashboard() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/movie-dashboard.tsx",
-                            lineNumber: 111,
+                            lineNumber: 151,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -816,18 +911,18 @@ function MovieDashboard() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/movie-dashboard.tsx",
-                            lineNumber: 121,
+                            lineNumber: 161,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/movie-dashboard.tsx",
-                    lineNumber: 110,
+                    lineNumber: 150,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/movie-dashboard.tsx",
-                lineNumber: 109,
+                lineNumber: 149,
                 columnNumber: 7
             }, this),
             loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -837,12 +932,12 @@ function MovieDashboard() {
                     children: "Cargando..."
                 }, void 0, false, {
                     fileName: "[project]/components/movie-dashboard.tsx",
-                    lineNumber: 136,
+                    lineNumber: 176,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/movie-dashboard.tsx",
-                lineNumber: 135,
+                lineNumber: 175,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
@@ -853,7 +948,7 @@ function MovieDashboard() {
                                 children: "Mi Lista"
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 142,
+                                lineNumber: 182,
                                 columnNumber: 15
                             }, this),
                             watchlist.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$movie$2d$list$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MovieList"], {
@@ -862,7 +957,7 @@ function MovieDashboard() {
                                 onMarkWatched: markAsWatched
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 144,
+                                lineNumber: 184,
                                 columnNumber: 17
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "rounded-lg border border-dashed border-border p-8 text-center",
@@ -871,18 +966,18 @@ function MovieDashboard() {
                                     children: "No hay películas en tu lista. Busca y agrega algunas películas."
                                 }, void 0, false, {
                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                    lineNumber: 147,
+                                    lineNumber: 187,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 146,
+                                lineNumber: 186,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/movie-dashboard.tsx",
-                        lineNumber: 141,
+                        lineNumber: 181,
                         columnNumber: 13
                     }, this),
                     activeTab === "watched" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -892,7 +987,7 @@ function MovieDashboard() {
                                 children: "Películas Vistas"
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 155,
+                                lineNumber: 195,
                                 columnNumber: 15
                             }, this),
                             watched.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$movie$2d$list$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MovieList"], {
@@ -901,7 +996,7 @@ function MovieDashboard() {
                                 onRemove: removeWatched
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 157,
+                                lineNumber: 197,
                                 columnNumber: 17
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "rounded-lg border border-dashed border-border p-8 text-center",
@@ -910,18 +1005,18 @@ function MovieDashboard() {
                                     children: "Aún no has visto ninguna película."
                                 }, void 0, false, {
                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                    lineNumber: 160,
+                                    lineNumber: 200,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 159,
+                                lineNumber: 199,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/movie-dashboard.tsx",
-                        lineNumber: 154,
+                        lineNumber: 194,
                         columnNumber: 13
                     }, this)
                 ]
@@ -929,11 +1024,11 @@ function MovieDashboard() {
         ]
     }, void 0, true, {
         fileName: "[project]/components/movie-dashboard.tsx",
-        lineNumber: 104,
+        lineNumber: 144,
         columnNumber: 5
     }, this);
 }
-_s(MovieDashboard, "x2s7mdYz/oUIq4op061YrrQQpGE=");
+_s(MovieDashboard, "C2QtVWS7AIlcDs+6aRsci+mEdD4=");
 _c = MovieDashboard;
 var _c;
 __turbopack_context__.k.register(_c, "MovieDashboard");

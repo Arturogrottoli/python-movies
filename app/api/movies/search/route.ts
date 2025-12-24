@@ -23,10 +23,10 @@ export async function GET(request: Request) {
   try {
       const [movieResponse, personResponse] = await Promise.all([
         fetch(
-          `${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}&language=es-ES`
+          `${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}`
         ),
         fetch(
-          `${TMDB_BASE_URL}/search/person?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}&language=es-ES`
+          `${TMDB_BASE_URL}/search/person?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}`
         ),
       ])
 
@@ -52,7 +52,7 @@ export async function GET(request: Request) {
         for (const directorId of Array.from(directorIds).slice(0, 3)) {
           try {
             const directorMoviesResponse = await fetch(
-              `${TMDB_BASE_URL}/person/${directorId}/movie_credits?api_key=${TMDB_API_KEY}&language=es-ES`
+              `${TMDB_BASE_URL}/person/${directorId}/movie_credits?api_key=${TMDB_API_KEY}`
             )
             if (directorMoviesResponse.ok) {
               const directorMovies = await directorMoviesResponse.json()
@@ -79,7 +79,7 @@ export async function GET(request: Request) {
       const movieDetailsPromises = Array.from(allMovieIds).slice(0, 20).map(async (movieId) => {
         try {
           const detailResponse = await fetch(
-            `${TMDB_BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}&language=es-ES&append_to_response=credits`
+            `${TMDB_BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}&append_to_response=credits`
           )
           if (detailResponse.ok) {
             return await detailResponse.json()
@@ -96,7 +96,7 @@ export async function GET(request: Request) {
         const director = movie.credits?.crew?.find((person: any) => person.job === "Director")
         return {
           id: movie.id,
-          title: movie.title,
+          title: movie.original_title || movie.title,
           year: movie.release_date ? new Date(movie.release_date).getFullYear() : 0,
           rating: movie.vote_average || 0,
           poster: movie.poster_path ? `${TMDB_IMAGE_BASE_URL}${movie.poster_path}` : "/placeholder.svg",

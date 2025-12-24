@@ -124,3 +124,40 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+[data-nextjs-toast] {
+  display: none !important;
+}
+
+.__next-dev-overlay {
+  display: none !important;
+}
+
+nextjs-portal {
+  display: none !important;
+}
+
+#__next-build-widget {
+  display: none !important;
+}
+
+[data-nextjs-toast-root] {
+  display: none !important;
+}
+
+iframe[src*="nextjs"] {
+  display: none !important;
+}
+
+body > div[style*="position: fixed"][style*="bottom"] {
+  display: none !important;
+}

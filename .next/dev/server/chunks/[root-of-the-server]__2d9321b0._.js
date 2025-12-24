@@ -63,8 +63,8 @@ async function GET(request) {
     }
     try {
         const [movieResponse, personResponse] = await Promise.all([
-            fetch(`${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}&language=es-ES`),
-            fetch(`${TMDB_BASE_URL}/search/person?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}&language=es-ES`)
+            fetch(`${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}`),
+            fetch(`${TMDB_BASE_URL}/search/person?query=${encodeURIComponent(query)}&api_key=${TMDB_API_KEY}`)
         ]);
         if (!movieResponse.ok && !personResponse.ok) {
             console.error("TMDB API error:", movieResponse.status, personResponse.status);
@@ -87,7 +87,7 @@ async function GET(request) {
         if (directorIds.size > 0) {
             for (const directorId of Array.from(directorIds).slice(0, 3)){
                 try {
-                    const directorMoviesResponse = await fetch(`${TMDB_BASE_URL}/person/${directorId}/movie_credits?api_key=${TMDB_API_KEY}&language=es-ES`);
+                    const directorMoviesResponse = await fetch(`${TMDB_BASE_URL}/person/${directorId}/movie_credits?api_key=${TMDB_API_KEY}`);
                     if (directorMoviesResponse.ok) {
                         const directorMovies = await directorMoviesResponse.json();
                         const directedMovies = directorMovies.crew?.filter((credit)=>credit.job === "Director").slice(0, 10) || [];
@@ -107,7 +107,7 @@ async function GET(request) {
         }
         const movieDetailsPromises = Array.from(allMovieIds).slice(0, 20).map(async (movieId)=>{
             try {
-                const detailResponse = await fetch(`${TMDB_BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}&language=es-ES&append_to_response=credits`);
+                const detailResponse = await fetch(`${TMDB_BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}&append_to_response=credits`);
                 if (detailResponse.ok) {
                     return await detailResponse.json();
                 }
@@ -121,7 +121,7 @@ async function GET(request) {
             const director = movie.credits?.crew?.find((person)=>person.job === "Director");
             return {
                 id: movie.id,
-                title: movie.title,
+                title: movie.original_title || movie.title,
                 year: movie.release_date ? new Date(movie.release_date).getFullYear() : 0,
                 rating: movie.vote_average || 0,
                 poster: movie.poster_path ? `${TMDB_IMAGE_BASE_URL}${movie.poster_path}` : "/placeholder.svg",

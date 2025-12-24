@@ -1,4 +1,6 @@
-#!/Users/arturogrottoli/Downloads/python-movies-main/python/venv/bin/python3
+#!/bin/sh
+'''exec' "/Users/arturogrottoli/Downloads/python-movies-main 3/python/venv/bin/python3.13" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
