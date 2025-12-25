@@ -140,7 +140,7 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
             print("🔐 [Backend] ❌ user_id is None in payload")
             raise credentials_exception
         
-        # Convertir user_id a int si es necesario
+        # Convertir user_id a int (jose devuelve el sub como string)
         if isinstance(user_id, str):
             user_id = int(user_id)
         elif not isinstance(user_id, int):
@@ -294,7 +294,7 @@ async def register(user_data: UserRegister):
         user_id = cursor.lastrowid
         conn.close()
 
-        access_token = create_access_token(data={"sub": user_id})
+        access_token = create_access_token(data={"sub": str(user_id)})
         return {
             "success": True,
             "access_token": access_token,
@@ -321,7 +321,7 @@ async def login(user_data: UserLogin):
         if not user or not verify_password(user_data.password, user["password_hash"]):
             raise HTTPException(status_code=401, detail="Incorrect username or password")
 
-        access_token = create_access_token(data={"sub": user["id"]})
+        access_token = create_access_token(data={"sub": str(user["id"])})
         return {
             "success": True,
             "access_token": access_token,
@@ -556,6 +556,60 @@ async def get_daily_stats_endpoint():
 async def get_streak_endpoint():
     """Get current watching streak"""
     return get_streak()
+
+
+@app.get("/api/leaderboard")
+async def get_leaderboard(period: str = "all_time"):
+    """
+    Get leaderboard of all users
+    period: 'week', 'month', 'year', 'all_time'
+    """
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        
+        # Calculate date filter based on period
+        if period == "week":
+            date_filter = "datetime('now', '-7 days')"
+        elif period == "month":
+            date_filter = "datetime('now', '-1 month')"
+        elif period == "year":
+            date_filter = "datetime('now', '-1 year')"
+        else:  # all_time
+            date_filter = "datetime('1970-01-01')"
+        
+        query = """
+            SELECT 
+                u.id,
+                u.username,
+                COALESCE(SUM(w.points_earned), 0) as total_points,
+                COUNT(DISTINCT w.movie_id) as movies_watched
+            FROM users u
+            LEFT JOIN movies m ON u.id = m.user_id
+            LEFT JOIN watched_movies w ON m.id = w.movie_id 
+                AND datetime(w.date_watched) >= """ + date_filter + """
+            GROUP BY u.id, u.username
+            ORDER BY total_points DESC, movies_watched DESC, u.username ASC
+            LIMIT 100
+        """
+        
+        cursor.execute(query)
+        results = cursor.fetchall()
+        conn.close()
+        
+        leaderboard = []
+        for idx, row in enumerate(results, 1):
+            leaderboard.append({
+                "rank": idx,
+                "user_id": row["id"],
+                "username": row["username"],
+                "total_points": row["total_points"],
+                "movies_watched": row["movies_watched"]
+            })
+        
+        return {"leaderboard": leaderboard, "period": period}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/api/export/csv")

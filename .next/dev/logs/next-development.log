@@ -1,810 +1,557 @@
-[00:00:00.810] Server  LOG      ✓ Ready in 560ms
-[00:00:04.774] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
-[00:00:04.775] Server  LOG     🎬 [Home] Renderizando: Loading screen
-[00:00:05.071] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:05.267] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[00:00:05.267] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[00:00:05.267] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[00:00:05.267] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[00:00:05.267] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
-[00:00:05.268] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:00:05.268] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:00:05.268] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:00:05.268] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:00:05.268] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:05.268] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:05.268] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766595256970}
-[00:00:06.186] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:00:06.186] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:00:06.186] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:00:06.186] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:00:13.544] Browser LOG     🔐 [AuthForm] Respuesta del servidor: {"hasToken":true,"hasUser":true}
-[00:00:13.544] Browser LOG     🔐 [AuthForm] Guardando token en localStorage
-[00:00:13.544] Browser LOG     🔐 [AuthForm] Token guardado. Verificando: OK
-[00:00:13.544] Browser LOG     🔐 [AuthForm] Llamando onAuthSuccess
-[00:00:13.544] Browser LOG     ✅ [Home] handleAuthSuccess llamado con token: eyJhbGciOiJIUzI1NiIs... user: {"id":1,"username":"Turi"}
-[00:00:13.544] Browser LOG     ✅ [Home] Estado actual - isAuthenticated: false isTransitioning: false
-[00:00:13.544] Browser LOG     ✅ [Home] Token en localStorage: existe
-[00:00:13.544] Browser LOG     ✅ [Home] isTransitioning establecido a true
-[00:00:13.544] Browser LOG     🔐 [AuthForm] onAuthSuccess llamado
-[00:00:13.544] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[00:00:13.544] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[00:00:13.544] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[00:00:13.544] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[00:00:14.185] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[00:00:15.185] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[00:00:15.500] Browser LOG     ✅ [Home] Timeout completado - verificando token: existe
-[00:00:15.500] Browser LOG     ✅ [Home] Token existe, estableciendo isAuthenticated a true
-[00:00:15.500] Browser LOG     ✅ [Home] Estados actualizados - isAuthenticated: true, isTransitioning: false
-[00:00:15.500] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[00:00:15.500] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[00:00:15.500] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[00:00:15.500] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[00:00:15.500] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[00:00:15.500] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[00:00:15.500] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[00:00:15.500] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[00:00:15.543] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[00:00:15.543] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[00:00:15.543] Browser ERROR   📋 [MovieDashboard] Limpiando localStorage y recargando...
-[00:00:15.596] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
-[00:00:15.596] Server  LOG     🎬 [Home] Renderizando: Loading screen
-[00:00:15.601] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[00:00:15.601] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[00:00:15.601] Browser ERROR   📋 [MovieDashboard] Limpiando localStorage y recargando...
-[00:00:15.731] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
-[00:00:15.732] Server  LOG     🎬 [Home] Renderizando: Loading screen
-[00:00:15.989] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:15.989] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[00:00:15.989] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[00:00:15.989] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[00:00:15.989] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[00:00:16.100] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
-[00:00:16.100] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:00:16.101] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:00:16.101] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:00:16.101] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:00:16.283] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:16.283] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:16.283] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766595267985}
-[00:00:17.102] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:00:17.102] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:00:17.102] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:00:17.102] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:10:58.600] Server  LOG      ✓ Compiled in 567ms
-[00:11:04.481] Server  LOG      ✓ Compiled in 60ms
-[00:11:05.426] Server  LOG      ✓ Compiled in 68ms
-[00:11:06.337] Server  LOG      ✓ Compiled in 45ms
-[00:11:39.889] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
-[00:11:39.889] Server  LOG     🎬 [Home] Renderizando: Loading screen
-[00:11:40.384] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:11:40.623] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[00:11:40.624] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[00:11:40.624] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[00:11:40.624] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[00:11:40.624] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
-[00:11:40.624] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:11:40.624] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:11:40.624] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:11:40.624] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:11:41.053] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:11:41.053] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:11:41.053] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766595952714}
-[00:11:41.622] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:11:41.622] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:11:41.622] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:11:41.622] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:11:43.626] Browser LOG     🔐 [AuthForm] Respuesta del servidor: {"hasToken":true,"hasUser":true}
-[00:11:43.627] Browser LOG     🔐 [AuthForm] Guardando token en localStorage
-[00:11:43.627] Browser LOG     🔐 [AuthForm] Token guardado. Verificando: OK
-[00:11:43.627] Browser LOG     🔐 [AuthForm] Llamando onAuthSuccess
-[00:11:43.627] Browser LOG     ✅ [Home] handleAuthSuccess llamado con token: eyJhbGciOiJIUzI1NiIs... user: {"id":1,"username":"Turi"}
-[00:11:43.627] Browser LOG     ✅ [Home] Estado actual - isAuthenticated: false isTransitioning: false
-[00:11:43.627] Browser LOG     ✅ [Home] Token en localStorage: existe
-[00:11:43.627] Browser LOG     ✅ [Home] isTransitioning establecido a true
-[00:11:43.627] Browser LOG     🔐 [AuthForm] onAuthSuccess llamado
-[00:11:43.627] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[00:11:43.627] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[00:11:43.627] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[00:11:43.627] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[00:11:43.627] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[00:11:44.619] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[00:11:45.607] Browser LOG     ✅ [Home] Timeout completado - verificando token: existe
-[00:11:45.607] Browser LOG     ✅ [Home] Token existe, estableciendo isAuthenticated a true
-[00:11:45.607] Browser LOG     ✅ [Home] Estados actualizados - isAuthenticated: true, isTransitioning: false
-[00:11:45.607] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[00:11:45.607] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[00:11:45.607] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[00:11:45.607] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[00:11:45.607] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[00:11:45.607] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[00:11:45.607] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[00:11:45.607] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[00:11:45.607] Browser LOG     🔍 [Home] localStorageChange event detectado
-[00:11:45.607] Browser LOG     🔍 [Home] checkAuth - token: no existe cambiando isAuthenticated de true a false
-[00:11:45.607] Browser LOG     🔍 [Home] checkAuth - token: no existe cambiando isAuthenticated de true a false
-[00:11:45.607] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:11:45.607] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:11:45.607] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:11:45.607] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:11:45.607] Browser LOG     🔍 [Home] localStorageChange event detectado
-[00:11:45.607] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:11:45.607] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:11:45.607] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:11:45.607] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:11:45.607] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[00:11:45.607] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[00:11:45.607] Browser LOG     🔍 [Home] localStorageChange event detectado
-[00:11:45.607] Browser LOG     🔍 [Home] localStorageChange event detectado
-[00:11:45.607] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[00:11:45.607] Browser ERROR   📋 [MovieDashboard] Limpiando localStorage (sin recargar)
-[00:11:45.607] Browser LOG     🔍 [Home] localStorageChange event detectado
-[00:11:45.607] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[00:11:45.607] Browser ERROR   📋 [MovieDashboard] Limpiando localStorage (sin recargar)
-[00:11:45.607] Browser LOG     🔍 [Home] localStorageChange event detectado
-[00:12:30.073] Server  LOG      ✓ Compiled in 79ms
-[00:12:42.873] Server  LOG      ✓ Compiled in 365ms
-[00:12:42.983] Browser ERROR   ./components/movie-dashboard.tsx:44:11
-Ecmascript file had an error
-  42 |     
-  43 |     const headers = getAuthHeaders()
-> 44 |     const token = localStorage.getItem("authToken")
-     |           ^^^^^
-  45 |     console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-  46 |     console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-  47 |     console.log("📋 [MovieDashboard] Headers enviados:", { 
-
-the name `token` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/movie-dashboard.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/movie-dashboard.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:12:51.572] Browser ERROR   ./components/movie-dashboard.tsx:44:11
-Ecmascript file had an error
-  42 |     
-  43 |     const headers = getAuthHeaders()
-> 44 |     const token = localStorage.getItem("authToken")
-     |           ^^^^^
-  45 |     console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-  46 |     console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-  47 |     console.log("📋 [MovieDashboard] Headers enviados:", { 
-
-the name `token` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/movie-dashboard.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/movie-dashboard.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:13:08.903] Server  ERROR    ⨯ ./components/movie-dashboard.tsx:44:11
-Ecmascript file had an error
-  42 |     
-  43 |     const headers = getAuthHeaders()
-> 44 |     const token = localStorage.getItem("authToken")
-     |           ^^^^^
-  45 |     console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-  46 |     console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-  47 |     console.log("📋 [MovieDashboard] Headers enviados:", { 
-
-the name `token` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/movie-dashboard.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/movie-dashboard.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-
-[00:13:09.016] Browser ERROR   ./components/movie-dashboard.tsx:44:11
-Ecmascript file had an error
-  42 |     
-  43 |     const headers = getAuthHeaders()
-> 44 |     const token = localStorage.getItem("authToken")
-     |           ^^^^^
-  45 |     console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-  46 |     console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-  47 |     console.log("📋 [MovieDashboard] Headers enviados:", { 
-
-the name `token` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/movie-dashboard.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/movie-dashboard.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:13:09.945] Browser ERROR   ./components/movie-dashboard.tsx:44:11
-Ecmascript file had an error
-  42 |     
-  43 |     const headers = getAuthHeaders()
-> 44 |     const token = localStorage.getItem("authToken")
-     |           ^^^^^
-  45 |     console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-  46 |     console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-  47 |     console.log("📋 [MovieDashboard] Headers enviados:", { 
-
-the name `token` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/movie-dashboard.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/movie-dashboard.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:13:09.945] Browser ERROR   ./components/movie-dashboard.tsx:44:11
-Ecmascript file had an error
-  42 |     
-  43 |     const headers = getAuthHeaders()
-> 44 |     const token = localStorage.getItem("authToken")
-     |           ^^^^^
-  45 |     console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-  46 |     console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-  47 |     console.log("📋 [MovieDashboard] Headers enviados:", { 
-
-the name `token` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/movie-dashboard.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/movie-dashboard.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:13:10.530] Browser ERROR   uncaughtError: Error: ./components/movie-dashboard.tsx:44:11
-Ecmascript file had an error
-  42 |     
-  43 |     const headers = getAuthHeaders()
-> 44 |     const token = localStorage.getItem("authToken")
-     |           ^^^^^
-  45 |     console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-  46 |     console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-  47 |     console.log("📋 [MovieDashboard] Headers enviados:", { 
-
-the name `token` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/movie-dashboard.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/movie-dashboard.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-
-[00:13:10.895] Browser ERROR   ./components/movie-dashboard.tsx:44:11
-Ecmascript file had an error
-  42 |     
-  43 |     const headers = getAuthHeaders()
-> 44 |     const token = localStorage.getItem("authToken")
-     |           ^^^^^
-  45 |     console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-  46 |     console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-  47 |     console.log("📋 [MovieDashboard] Headers enviados:", { 
-
-the name `token` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/movie-dashboard.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/movie-dashboard.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:13:11.016] Browser ERROR   ./components/movie-dashboard.tsx:44:11
-Ecmascript file had an error
-  42 |     
-  43 |     const headers = getAuthHeaders()
-> 44 |     const token = localStorage.getItem("authToken")
-     |           ^^^^^
-  45 |     console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-  46 |     console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-  47 |     console.log("📋 [MovieDashboard] Headers enviados:", { 
-
-the name `token` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/movie-dashboard.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/movie-dashboard.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:13:42.196] Server  LOG      ✓ Compiled in 250ms
-[00:13:42.776] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
-[00:13:42.776] Server  LOG     🎬 [Home] Renderizando: Loading screen
-[00:13:43.241] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:13:43.363] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[00:13:43.363] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[00:13:43.363] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[00:13:43.363] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[00:13:43.367] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
-[00:13:43.367] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:13:43.367] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:13:43.367] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:13:43.367] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:13:44.064] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:13:44.065] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:13:44.065] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766596075638}
-[00:13:44.362] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:13:44.362] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[00:13:44.362] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[00:13:44.362] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:25:04.000] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
-[01:25:04.005] Server  LOG     🎬 [Home] Renderizando: Loading screen
-[01:25:05.088] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:25:05.359] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[01:25:05.359] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[01:25:05.359] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[01:25:05.359] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[01:25:05.359] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
-[01:25:05.359] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:25:05.359] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:25:05.359] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:25:05.359] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:25:06.064] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:25:06.065] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[01:25:06.065] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766600358349}
-[01:25:06.275] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:25:06.275] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:25:06.275] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:25:06.276] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:25:08.484] Browser LOG     🔐 [AuthForm] Respuesta del servidor: {"hasToken":true,"hasUser":true}
-[01:25:08.485] Browser LOG     🔐 [AuthForm] Guardando token en localStorage
-[01:25:08.485] Browser LOG     🔐 [AuthForm] Token guardado. Verificando: OK
-[01:25:08.485] Browser LOG     🔐 [AuthForm] Llamando onAuthSuccess
-[01:25:08.485] Browser LOG     ✅ [Home] handleAuthSuccess llamado con token: eyJhbGciOiJIUzI1NiIs... user: {"id":1,"username":"Turi"}
-[01:25:08.485] Browser LOG     ✅ [Home] Estado actual - isAuthenticated: false isTransitioning: false
-[01:25:08.485] Browser LOG     ✅ [Home] Token en localStorage: existe
-[01:25:08.485] Browser LOG     ✅ [Home] isTransitioning establecido a true
-[01:25:08.487] Browser LOG     🔐 [AuthForm] onAuthSuccess llamado
-[01:25:08.487] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[01:25:08.487] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[01:25:08.487] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[01:25:08.487] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[01:25:09.275] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[01:25:10.268] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[01:25:10.540] Browser LOG     ✅ [Home] Timeout completado - verificando token: existe
-[01:25:10.542] Browser LOG     ✅ [Home] Token existe, estableciendo isAuthenticated a true
-[01:25:10.542] Browser LOG     ✅ [Home] Estados actualizados - isAuthenticated: true, isTransitioning: false
-[01:25:10.542] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[01:25:10.542] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[01:25:10.542] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[01:25:10.542] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[01:25:10.542] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[01:25:10.542] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[01:25:10.543] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
-[01:25:10.543] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
-[01:25:10.543] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[01:25:10.543] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[01:25:10.543] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
-[01:25:10.543] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
-[01:25:10.543] Browser LOG     🔍 [Home] localStorageChange event detectado
-[01:25:10.543] Browser LOG     🔍 [Home] checkAuth - token: no existe cambiando isAuthenticated de true a false
-[01:25:10.543] Browser LOG     🔍 [Home] checkAuth - token: no existe cambiando isAuthenticated de true a false
-[01:25:10.543] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:25:10.543] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:25:10.543] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:25:10.543] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:25:10.543] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[01:25:10.543] Browser LOG     🔍 [Home] localStorageChange event detectado
-[01:25:10.543] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:25:10.543] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:25:10.543] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:25:10.543] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:25:10.543] Browser LOG     🔍 [Home] localStorageChange event detectado
-[01:25:10.543] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[01:25:10.543] Browser LOG     🔍 [Home] localStorageChange event detectado
-[01:25:10.543] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[01:25:10.543] Browser ERROR   📋 [MovieDashboard] Limpiando localStorage (sin recargar)
-[01:25:10.543] Browser LOG     🔍 [Home] localStorageChange event detectado
-[01:25:10.543] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[01:25:10.543] Browser ERROR   📋 [MovieDashboard] Limpiando localStorage (sin recargar)
-[01:25:10.543] Browser LOG     🔍 [Home] localStorageChange event detectado
-[01:26:20.508] Server  LOG      ✓ Compiled in 728ms
-[01:26:26.730] Server  LOG      ✓ Compiled in 67ms
-[01:26:27.868] Server  LOG      ✓ Compiled in 150ms
-[01:26:29.083] Server  LOG      ✓ Compiled in 101ms
-[01:26:51.863] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
-[01:26:51.864] Server  LOG     🎬 [Home] Renderizando: Loading screen
-[01:26:52.657] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:26:52.820] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[01:26:52.821] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[01:26:52.821] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[01:26:52.821] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[01:26:52.821] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
-[01:26:52.821] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:26:52.821] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:26:52.821] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:26:52.821] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:26:53.250] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:26:53.250] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[01:26:53.250] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766600465534}
-[01:26:53.820] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:26:53.820] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:26:53.820] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:26:53.820] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:27:44.360] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
-[01:27:44.361] Server  LOG     🎬 [Home] Renderizando: Loading screen
-[01:27:44.797] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:27:44.797] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[01:27:44.797] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[01:27:44.797] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[01:27:44.797] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[01:27:44.891] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
-[01:27:44.891] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:27:44.891] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:27:44.891] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:27:44.891] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:27:45.245] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:27:45.245] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[01:27:45.245] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766600517529}
-[01:27:45.882] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:27:45.883] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:27:45.883] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:27:45.883] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:27:48.238] Browser LOG     🔐 [AuthForm] Respuesta del servidor: {"hasToken":true,"hasUser":true}
-[01:27:48.238] Browser LOG     🔐 [AuthForm] Guardando token en localStorage
-[01:27:48.238] Browser LOG     🔐 [AuthForm] Token guardado. Verificando: OK
-[01:27:48.238] Browser LOG     🔐 [AuthForm] Llamando onAuthSuccess
-[01:27:48.238] Browser LOG     ✅ [Home] handleAuthSuccess llamado con token: eyJhbGciOiJIUzI1NiIs... user: {"id":1,"username":"Turi"}
-[01:27:48.238] Browser LOG     ✅ [Home] Estado actual - isAuthenticated: false isTransitioning: false
-[01:27:48.238] Browser LOG     ✅ [Home] Token en localStorage: existe
-[01:27:48.238] Browser LOG     ✅ [Home] isTransitioning establecido a true
-[01:27:48.238] Browser LOG     🔐 [AuthForm] onAuthSuccess llamado
-[01:27:48.238] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[01:27:48.238] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[01:27:48.238] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[01:27:48.238] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[01:27:48.881] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[01:27:49.881] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[01:27:50.307] Browser LOG     ✅ [Home] Timeout completado - verificando token: existe
-[01:27:50.307] Browser LOG     ✅ [Home] Token existe, estableciendo isAuthenticated a true
-[01:27:50.307] Browser LOG     ✅ [Home] Estados actualizados - isAuthenticated: true, isTransitioning: false
-[01:27:50.307] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[01:27:50.307] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[01:27:50.307] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[01:27:50.307] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
-[01:27:50.307] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:27:50.307] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:27:50.307] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:27:50.307] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[01:27:50.307] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
-[01:27:50.307] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
-[01:27:50.307] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[01:27:50.307] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
-[01:27:50.307] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
-[01:27:50.307] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[01:27:50.307] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
-[01:27:50.307] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[01:27:50.307] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
-[01:27:55.288] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:27:55.290] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:00.283] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:00.283] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:02.253] Browser ERROR   🔍 [SearchMovies] 401 error: Token inválido
-[01:28:02.253] Browser ERROR   🔍 [SearchMovies] NO limpiando localStorage para permitir debug
-[01:28:05.319] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:05.319] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:10.291] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:10.291] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:15.286] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:15.286] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:20.296] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:20.296] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:25.299] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:25.299] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:30.285] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:30.286] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:35.305] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:35.305] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:40.292] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:40.293] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:45.298] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:45.299] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:50.305] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:50.320] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:28:55.287] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:28:55.287] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:00.303] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:00.303] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:05.288] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:05.288] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:10.301] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:10.304] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:15.289] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:15.289] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:20.287] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:20.288] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:25.296] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:25.298] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:30.349] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:30.350] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:35.340] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:35.341] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:40.293] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:40.293] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:45.291] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:45.291] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:50.287] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:50.287] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:29:55.288] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:29:55.290] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:00.293] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:00.293] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:05.290] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:05.290] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:10.299] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:10.299] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:15.316] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:15.316] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:20.306] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:20.308] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:25.303] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:25.305] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:30.304] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:30.304] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:35.297] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:35.297] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:40.297] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:40.297] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:45.298] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:45.299] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:50.285] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:50.285] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:30:55.298] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:30:55.298] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:00.295] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:00.295] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:05.304] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:05.304] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:10.300] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:10.301] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:15.290] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:15.290] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:20.304] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:20.304] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:25.288] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:25.288] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:30.288] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:30.288] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:35.283] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:35.283] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:40.306] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:40.306] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:45.293] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:45.294] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:50.298] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:50.298] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:31:55.294] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:31:55.294] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:00.299] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:00.299] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:05.296] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:05.296] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:10.291] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:10.291] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:15.282] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:15.282] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:20.335] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:20.346] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:25.294] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:25.294] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:30.309] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:30.309] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:35.302] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:35.304] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:40.300] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:40.301] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:45.291] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:45.292] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:50.302] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:50.305] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:32:55.287] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:32:55.288] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:00.293] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:00.294] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:05.298] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:05.298] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:10.300] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:10.300] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:15.305] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:15.311] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:20.290] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:20.291] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:25.306] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:25.308] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:30.297] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:30.297] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:35.299] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:35.300] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:40.330] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:40.331] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:45.306] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:45.307] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:50.360] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:50.360] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:33:55.303] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:33:55.303] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:00.301] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:00.302] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:05.290] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:05.290] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:10.302] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:10.302] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:15.295] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:15.295] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:20.302] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:20.303] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:25.287] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:25.288] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:30.285] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:30.286] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:35.316] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:35.319] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:40.306] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:40.308] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:45.300] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:45.300] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:50.295] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:50.295] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:34:55.283] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:34:55.283] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:00.302] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:00.303] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:05.301] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:05.301] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:10.314] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:10.315] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:12.365] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
-[01:35:12.366] Server  LOG     🎬 [Home] Renderizando: Loading screen
-[01:35:13.114] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:35:13.517] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[01:35:13.517] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[01:35:13.518] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
-[01:35:13.518] Browser LOG     🎬 [Home] Renderizando: Loading screen
-[01:35:13.518] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
-[01:35:13.518] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
-[01:35:13.518] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
-[01:35:13.518] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[01:35:13.518] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[01:35:13.518] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[01:35:13.518] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
-[01:35:13.518] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:13.518] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:13.518] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
-[01:35:13.518] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[01:35:13.518] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[01:35:13.518] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
-[01:35:13.518] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:13.518] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:13.518] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[01:35:13.518] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[01:35:13.518] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
-[01:35:13.518] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
-[01:35:13.518] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
-[01:35:13.518] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:35:13.518] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[01:35:13.518] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766600965781}
-[01:35:18.361] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:18.362] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:21.367] Server  LOG     🔍 [Next.js Proxy] Authorization header: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdW..."
-[01:35:21.369] Server  LOG     🔍 [Next.js Proxy] Forwarding to backend: "http://localhost:8000/api/movies/add-watchlist"
-[01:35:21.483] Browser ERROR   🔍 [SearchMovies] 401 error: Token inválido
-[01:35:21.483] Browser ERROR   🔍 [SearchMovies] NO limpiando localStorage para permitir debug
-[01:35:23.342] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:23.342] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:26.839] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:35:26.839] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:35:26.839] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:35:26.839] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:35:26.839] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:35:26.839] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:35:26.839] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
-[01:35:26.839] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
-[01:35:28.911] Browser LOG     🔐 [AuthForm] Respuesta del servidor: {"hasToken":true,"hasUser":true}
-[01:35:28.911] Browser LOG     🔐 [AuthForm] Guardando token en localStorage
-[01:35:28.911] Browser LOG     🔐 [AuthForm] Token guardado. Verificando: OK
-[01:35:28.911] Browser LOG     🔐 [AuthForm] Llamando onAuthSuccess
-[01:35:28.911] Browser LOG     ✅ [Home] handleAuthSuccess llamado con token: eyJhbGciOiJIUzI1NiIs... user: {"id":1,"username":"Turi"}
-[01:35:28.911] Browser LOG     ✅ [Home] Estado actual - isAuthenticated: false isTransitioning: false
-[01:35:28.911] Browser LOG     ✅ [Home] Token en localStorage: existe
-[01:35:28.911] Browser LOG     ✅ [Home] isTransitioning establecido a true
-[01:35:28.911] Browser LOG     🔐 [AuthForm] onAuthSuccess llamado
-[01:35:28.911] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[01:35:28.911] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[01:35:28.911] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
-[01:35:28.911] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
-[01:35:29.248] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[01:35:30.250] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
-[01:35:30.958] Browser LOG     ✅ [Home] Timeout completado - verificando token: existe
-[01:35:30.958] Browser LOG     ✅ [Home] Token existe, estableciendo isAuthenticated a true
-[01:35:30.958] Browser LOG     ✅ [Home] Estados actualizados - isAuthenticated: true, isTransitioning: false
-[01:35:30.958] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[01:35:30.958] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[01:35:30.958] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
-[01:35:30.958] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
-[01:35:30.958] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:30.958] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[01:35:30.958] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[01:35:30.958] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
-[01:35:30.958] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:30.958] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:30.958] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
-[01:35:30.958] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
-[01:35:30.958] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
-[01:35:30.958] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
-[01:35:30.958] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
-[01:35:30.958] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
-[01:35:30.958] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
-[01:35:35.960] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:35.960] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
-[01:35:37.628] Server  LOG     🔍 [Next.js Proxy] Authorization header: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdW..."
-[01:35:37.629] Server  LOG     🔍 [Next.js Proxy] Forwarding to backend: "http://localhost:8000/api/movies/add-watchlist"
-[01:35:37.741] Browser ERROR   🔍 [SearchMovies] 401 error: Token inválido
-[01:35:37.741] Browser ERROR   🔍 [SearchMovies] NO limpiando localStorage para permitir debug
-[01:35:40.946] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
-[01:35:40.947] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:01.788] Server  LOG      ✓ Ready in 1554ms
+[00:00:07.135] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
+[00:00:07.136] Server  LOG     🎬 [Home] Renderizando: Loading screen
+[00:00:07.505] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:07.818] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:00:07.819] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:00:07.819] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:00:07.819] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:00:07.819] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
+[00:00:07.819] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:00:07.819] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:00:07.819] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:00:07.819] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:00:07.819] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:00:07.819] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:00:07.819] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:07.819] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:07.819] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766669974334}
+[00:00:07.819] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:07.819] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
+[00:00:07.819] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
+[00:00:07.819] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
+[00:00:07.819] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:07.819] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:07.819] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
+[00:00:07.819] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
+[00:00:07.819] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
+[00:00:07.819] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
+[00:00:07.819] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
+[00:00:07.819] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
+[00:00:07.819] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
+[00:00:12.666] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:12.666] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:17.665] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:17.665] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:19.810] Server  LOG     🔍 [Next.js Proxy] Authorization header: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdW..."
+[00:00:19.810] Server  LOG     🔍 [Next.js Proxy] Forwarding to backend: "http://localhost:8000/api/movies/add-watchlist"
+[00:00:19.923] Browser ERROR   🔍 [SearchMovies] 401 error: Token inválido
+[00:00:19.923] Browser ERROR   🔍 [SearchMovies] NO limpiando localStorage para permitir debug
+[00:00:22.660] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:22.660] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:27.659] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:27.659] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:32.665] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:32.665] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:37.666] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:37.666] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:42.658] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:42.658] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:47.672] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:47.672] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:52.668] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:52.668] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:00:57.658] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:00:57.658] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:02.665] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:02.666] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:07.673] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:07.673] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:12.670] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:12.670] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:17.677] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:17.677] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:23.748] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:23.748] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:28.749] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:28.749] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:33.750] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:33.751] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:38.747] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:38.747] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:43.749] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:43.754] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:48.754] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:48.754] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:53.747] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:53.747] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:01:58.747] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:01:58.748] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:02:03.748] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:02:03.748] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:02:08.750] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:02:08.750] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:02:13.748] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:02:13.748] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:02:18.755] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:02:18.755] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:02:30.761] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:02:30.762] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:03:30.754] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:03:30.754] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:04:30.759] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:04:30.759] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:13.524] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:13.524] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:15.268] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:05:15.269] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:05:15.269] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:05:15.269] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:05:15.269] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:05:15.269] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:05:15.269] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:05:15.269] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:05:17.684] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
+[00:05:17.685] Server  LOG     🎬 [Home] Renderizando: Loading screen
+[00:05:18.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:18.124] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:05:18.124] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:05:18.124] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:05:18.124] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:05:18.124] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
+[00:05:18.124] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:05:18.124] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:05:18.124] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:05:18.124] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:05:18.668] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:18.668] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:05:18.668] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766670285291}
+[00:05:19.165] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:05:19.165] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:05:19.165] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:05:19.165] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:05:22.159] Browser LOG     🔐 [AuthForm] Respuesta del servidor: {"hasToken":true,"hasUser":true}
+[00:05:22.159] Browser LOG     🔐 [AuthForm] Guardando token en localStorage
+[00:05:22.159] Browser LOG     🔐 [AuthForm] Token guardado. Verificando: OK
+[00:05:22.159] Browser LOG     🔐 [AuthForm] Llamando onAuthSuccess
+[00:05:22.159] Browser LOG     ✅ [Home] handleAuthSuccess llamado con token: eyJhbGciOiJIUzI1NiIs... user: {"id":1,"username":"Turi"}
+[00:05:22.159] Browser LOG     ✅ [Home] Estado actual - isAuthenticated: false isTransitioning: false
+[00:05:22.159] Browser LOG     ✅ [Home] Token en localStorage: existe
+[00:05:22.159] Browser LOG     ✅ [Home] isTransitioning establecido a true
+[00:05:22.159] Browser LOG     🔐 [AuthForm] onAuthSuccess llamado
+[00:05:22.159] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
+[00:05:22.159] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
+[00:05:22.159] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
+[00:05:22.159] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
+[00:05:22.159] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
+[00:05:23.157] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
+[00:05:24.138] Browser LOG     ✅ [Home] Timeout completado - verificando token: existe
+[00:05:24.138] Browser LOG     ✅ [Home] Token existe, estableciendo isAuthenticated a true
+[00:05:24.138] Browser LOG     ✅ [Home] Estados actualizados - isAuthenticated: true, isTransitioning: false
+[00:05:24.138] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:05:24.138] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:05:24.138] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:05:24.138] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsI...
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:05:24.138] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:24.138] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:24.138] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
+[00:05:24.138] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
+[00:05:24.138] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
+[00:05:24.138] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
+[00:05:24.138] Browser ERROR   📋 [MovieDashboard] fetchWatched - 401 error: Token inválido
+[00:05:24.138] Browser ERROR   📋 [MovieDashboard] NO limpiando localStorage para permitir debug
+[00:05:24.138] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 401
+[00:05:24.138] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:24.138] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:24.138] Browser ERROR   📋 [MovieDashboard] fetchWatchlist - 401 error: Could not validate credentials
+[00:05:24.138] Browser ERROR   📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug
+[00:05:29.105] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:29.105] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:34.115] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:34.115] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:39.118] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:39.118] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:44.123] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:44.123] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:49.108] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:49.110] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:54.111] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:54.111] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:05:59.106] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:05:59.107] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:04.104] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:04.104] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:09.107] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:09.108] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:14.104] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:14.104] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:19.108] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:19.108] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:24.108] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:24.108] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:29.105] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:29.105] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:34.119] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:34.119] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:39.108] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:39.108] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:44.108] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:44.108] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:49.117] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:49.118] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:54.109] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:54.109] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:06:59.124] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:06:59.124] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:04.104] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:04.104] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:09.114] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:09.114] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:14.104] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:14.104] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:19.112] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:19.112] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:24.114] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:24.114] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:29.117] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:29.118] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:34.115] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:34.115] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:39.107] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:39.107] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:44.109] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:44.109] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:49.110] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:49.111] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:54.105] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:54.105] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:07:59.116] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:07:59.117] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:04.137] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:04.137] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:09.334] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:09.334] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:14.106] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:14.106] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:19.111] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:19.111] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:24.112] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:24.112] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:29.106] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:29.106] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:34.126] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:34.127] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:39.105] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:39.106] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:44.311] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:44.312] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:49.111] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:49.111] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:54.109] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:54.109] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:08:59.103] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:08:59.104] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:04.118] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:04.118] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:09.112] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:09.112] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:14.119] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:14.119] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:19.122] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:19.122] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:24.115] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:24.116] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:29.104] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:29.104] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:34.118] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:34.118] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:39.135] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:39.135] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:44.108] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:44.108] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:49.120] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:49.121] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:54.104] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:54.104] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:09:59.119] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:09:59.119] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:04.108] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:04.109] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:09.105] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:09.105] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:14.136] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:14.147] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:19.106] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:19.106] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:24.104] Browser ERROR   Error fetching total points: {}
+[00:10:29.141] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:29.141] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:34.116] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:34.116] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:39.122] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:39.122] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:44.113] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:44.113] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:49.112] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:49.112] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:54.119] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:54.120] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:10:59.112] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:10:59.113] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:04.111] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:04.111] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:09.112] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:09.113] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:14.123] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:14.123] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:19.116] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:19.116] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:24.121] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:24.121] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:29.135] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:29.135] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:34.121] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:34.121] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:39.104] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:39.104] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:44.119] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:44.119] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:49.137] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:49.138] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:54.106] Browser ERROR   📊 [MoviesHeader] 401 error: Token inválido
+[00:11:54.106] Browser ERROR   📊 [MoviesHeader] NO limpiando localStorage para permitir debug
+[00:11:55.223] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:11:55.224] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:11:55.224] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:11:55.224] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:11:55.224] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:11:55.224] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:11:55.224] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:11:55.224] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:11:58.980] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
+[00:11:58.980] Server  LOG     🎬 [Home] Renderizando: Loading screen
+[00:11:59.486] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:59.609] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:11:59.609] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:11:59.609] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:11:59.609] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:11:59.609] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
+[00:11:59.609] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:11:59.609] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:11:59.609] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:11:59.609] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:12:00.038] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:12:00.038] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:12:00.038] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766670686659}
+[00:12:00.610] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:12:00.610] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:12:00.610] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: false
+[00:12:00.610] Browser LOG     🎬 [Home] Renderizando: AuthForm (no autenticado)
+[00:12:10.069] Browser LOG     🔐 [AuthForm] Respuesta del servidor: {"hasToken":true,"hasUser":true}
+[00:12:10.070] Browser LOG     🔐 [AuthForm] Guardando token en localStorage
+[00:12:10.070] Browser LOG     🔐 [AuthForm] Token guardado. Verificando: OK
+[00:12:10.070] Browser LOG     🔐 [AuthForm] Llamando onAuthSuccess
+[00:12:10.070] Browser LOG     ✅ [Home] handleAuthSuccess llamado con token: eyJhbGciOiJIUzI1NiIs... user: {"id":1,"username":"Turi"}
+[00:12:10.070] Browser LOG     ✅ [Home] Estado actual - isAuthenticated: false isTransitioning: false
+[00:12:10.070] Browser LOG     ✅ [Home] Token en localStorage: existe
+[00:12:10.070] Browser LOG     ✅ [Home] isTransitioning establecido a true
+[00:12:10.070] Browser LOG     🔐 [AuthForm] onAuthSuccess llamado
+[00:12:10.070] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
+[00:12:10.070] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
+[00:12:10.070] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: true isAuthenticated: false
+[00:12:10.070] Browser LOG     🎬 [Home] Renderizando: MovieLoader (transición)
+[00:12:10.607] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
+[00:12:11.607] Browser LOG     🔍 [Home] checkAuth - saltando porque isTransitioning es true
+[00:12:12.123] Browser LOG     ✅ [Home] Timeout completado - verificando token: existe
+[00:12:12.124] Browser LOG     ✅ [Home] Token existe, estableciendo isAuthenticated a true
+[00:12:12.124] Browser LOG     ✅ [Home] Estados actualizados - isAuthenticated: true, isTransitioning: false
+[00:12:12.124] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:12:12.124] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:12:12.124] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:12:12.124] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 0
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:12:12.124] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 0
+[00:12:50.322] Server  LOG     🔍 [Next.js Proxy] Authorization header: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdW..."
+[00:12:50.323] Server  LOG     🔍 [Next.js Proxy] Forwarding to backend: "http://localhost:8000/api/movies/add-watchlist"
+[00:12:50.569] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:12:50.569] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:12:50.569] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:12:50.569] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:12:50.569] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 1
+[00:14:49.267] Server  LOG      ✓ Compiled in 429ms
+[00:15:01.754] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:15:01.754] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:15:01.754] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:15:01.754] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:15:01.754] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:15:01.754] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:15:01.754] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:15:01.754] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:15:17.519] Server  LOG      ✓ Compiled in 155ms
+[00:15:34.202] Server  LOG      ✓ Compiled in 90ms
+[00:15:40.426] Server  LOG      ✓ Compiled in 175ms
+[00:15:40.760] Browser ERROR   uncaughtError: ReferenceError: Leaderboard is not defined
+[00:15:45.534] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:15:45.543] Server  LOG      ✓ Compiled in 214ms
+[00:15:45.826] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
+[00:15:45.827] Server  LOG     🎬 [Home] Renderizando: Loading screen
+[00:15:46.135] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:46.750] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:15:46.751] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:15:46.751] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:15:46.751] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:15:46.751] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
+[00:15:46.751] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:15:46.751] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:15:46.751] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:15:46.751] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:15:46.751] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:15:46.751] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:15:46.751] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:15:46.751] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:15:46.751] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766670912946}
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 1
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:15:46.751] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 1
+[00:15:50.536] Server  LOG      ✓ Compiled in 79ms
+[00:15:51.691] Server  LOG      ✓ Compiled in 50ms
+[00:15:52.865] Server  LOG      ✓ Compiled in 64ms
+[00:15:53.748] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:15:53.748] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:15:53.749] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:15:53.749] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:15:53.749] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:15:53.749] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 1
+[00:17:46.472] Server  LOG      ✓ Compiled in 72ms
+[00:17:46.596] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:17:46.596] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:17:46.596] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:17:46.596] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:17:46.596] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:17:46.596] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 1
+[00:17:52.304] Server  LOG      ✓ Compiled in 58ms
+[00:17:52.413] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:17:52.413] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:17:52.413] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:17:52.413] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:17:52.413] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:17:52.413] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 1
+[00:19:48.705] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
+[00:19:48.706] Server  LOG     🎬 [Home] Renderizando: Loading screen
+[00:19:48.988] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:49.214] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:19:49.214] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:19:49.214] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:19:49.214] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:19:49.214] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
+[00:19:49.214] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:19:49.214] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:19:49.214] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:19:49.214] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:19:49.214] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:19:49.214] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 1
+[00:19:49.214] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 1
+[00:19:49.214] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:19:49.214] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:19:49.214] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766671155834}
+[00:20:05.692] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:20:05.692] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:20:05.692] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:20:05.692] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:20:05.692] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 0
+[00:20:14.840] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
+[00:20:14.840] Server  LOG     🎬 [Home] Renderizando: Loading screen
+[00:20:15.000] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:15.000] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:20:15.000] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:20:15.000] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:20:15.000] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:20:15.163] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
+[00:20:15.163] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:20:15.163] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:20:15.163] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:20:15.163] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:20:15.163] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:20:15.163] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:20:15.163] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:20:15.163] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:20:15.163] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766671181771}
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 0
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:20:15.163] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 0
+[00:23:13.579] Server  LOG     🎬 [Home] Render - loading: true "isTransitioning:" false "isAuthenticated:" false
+[00:23:13.579] Server  LOG     🎬 [Home] Renderizando: Loading screen
+[00:23:13.779] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:13.779] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:23:13.779] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:23:13.779] Browser LOG     🎬 [Home] Render - loading: true isTransitioning: false isAuthenticated: false
+[00:23:13.779] Browser LOG     🎬 [Home] Renderizando: Loading screen
+[00:23:13.967] Browser LOG     🔍 [Home] useEffect inicial - verificando auth
+[00:23:13.967] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:23:13.967] Browser LOG     🔍 [Home] checkAuth - token: existe cambiando isAuthenticated de false a true
+[00:23:13.967] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:23:13.967] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:23:13.967] Browser LOG     🎬 [Home] Render - loading: false isTransitioning: false isAuthenticated: true
+[00:23:13.967] Browser LOG     🎬 [Home] Renderizando: Dashboard (autenticado)
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] useEffect - montando componente, cargando datos
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] fetchWatchlist - haciendo request
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] Token en localStorage: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxI...
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] Headers enviados: {"authPrefix":"Bearer eyJhbGciOiJIUzI1NiIsInR","hasAuth":true}
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] fetchWatchlist - respuesta: 200
+[00:23:13.967] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:23:13.967] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:23:13.967] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766671360571}
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 0
+[00:23:13.967] Browser LOG     📋 [MovieDashboard] fetchWatchlist - éxito, películas: 0

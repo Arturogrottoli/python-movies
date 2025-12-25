@@ -1,5 +1,6 @@
 {
   "/api/movies/add/route": "app/api/movies/add/route.js",
+  "/api/movies/recommended/route": "app/api/movies/recommended/route.js",
   "/api/movies/search/route": "app/api/movies/search/route.js",
   "/page": "app/page.js"
 }

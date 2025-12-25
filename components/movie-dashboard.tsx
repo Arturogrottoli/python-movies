@@ -3,6 +3,8 @@
 import { useState, useCallback, useEffect } from "react"
 import { MovieList } from "./movie-list"
 import { SearchMovies } from "./search-movies"
+import { Leaderboard } from "./leaderboard"
+import { RecommendedMovies } from "./recommended-movies"
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000"
 
@@ -173,73 +175,83 @@ export function MovieDashboard() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mb-8 grid gap-6 lg:grid-cols-2">
+        <div>
+          <div className="mb-8 border-b border-border">
+            <div className="flex gap-4">
+              <button
+                onClick={() => setActiveTab("watchlist")}
+                className={`px-4 py-3 font-semibold transition-colors ${
+                  activeTab === "watchlist"
+                    ? "border-b-2 border-primary text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                My List ({watchlist.length})
+              </button>
+              <button
+                onClick={() => setActiveTab("watched")}
+                className={`px-4 py-3 font-semibold transition-colors ${
+                  activeTab === "watched"
+                    ? "border-b-2 border-primary text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Watched ({watched.length})
+              </button>
+            </div>
+          </div>
+
+          {loading ? (
+            <div className="flex items-center justify-center py-12">
+              <p className="text-muted-foreground">Loading...</p>
+            </div>
+          ) : (
+            <>
+              {activeTab === "watchlist" && (
+                <div>
+                  <h2 className="mb-6 text-2xl font-bold text-foreground">My List</h2>
+                  {watchlist.length > 0 ? (
+                    <MovieList
+                      movies={watchlist}
+                      type="watchlist"
+                      onMarkWatched={markAsWatched}
+                      onDeleteFromWatchlist={removeFromWatchlist}
+                    />
+                  ) : (
+                    <div className="rounded-lg border border-dashed border-border p-8 text-center">
+                      <p className="text-muted-foreground">No movies in your list. Search and add some movies.</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {activeTab === "watched" && (
+                <div>
+                  <h2 className="mb-6 text-2xl font-bold text-foreground">Watched Movies</h2>
+                  {watched.length > 0 ? (
+                    <MovieList movies={watched} type="watched" onRemove={removeWatched} />
+                  ) : (
+                    <div className="rounded-lg border border-dashed border-border p-8 text-center">
+                      <p className="text-muted-foreground">You haven't watched any movies yet.</p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+        <RecommendedMovies onMovieAdded={handleMovieAdded} />
+      </div>
+
       <div className="mb-8">
         <SearchMovies onMovieAdded={handleMovieAdded} />
       </div>
 
-      <div className="mb-8 border-b border-border">
-        <div className="flex gap-4">
-          <button
-            onClick={() => setActiveTab("watchlist")}
-            className={`px-4 py-3 font-semibold transition-colors ${
-              activeTab === "watchlist"
-                ? "border-b-2 border-primary text-primary"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            My List ({watchlist.length})
-          </button>
-          <button
-            onClick={() => setActiveTab("watched")}
-            className={`px-4 py-3 font-semibold transition-colors ${
-              activeTab === "watched"
-                ? "border-b-2 border-primary text-primary"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            Watched ({watched.length})
-          </button>
-        </div>
+      <div className="mb-8">
+        <Leaderboard />
       </div>
 
-      {loading ? (
-        <div className="flex items-center justify-center py-12">
-          <p className="text-muted-foreground">Loading...</p>
-        </div>
-      ) : (
-        <>
-          {activeTab === "watchlist" && (
-            <div>
-              <h2 className="mb-6 text-2xl font-bold text-foreground">My List</h2>
-              {watchlist.length > 0 ? (
-                <MovieList
-                  movies={watchlist}
-                  type="watchlist"
-                  onMarkWatched={markAsWatched}
-                  onDeleteFromWatchlist={removeFromWatchlist}
-                />
-              ) : (
-                <div className="rounded-lg border border-dashed border-border p-8 text-center">
-                  <p className="text-muted-foreground">No movies in your list. Search and add some movies.</p>
-                </div>
-              )}
-            </div>
-          )}
-
-          {activeTab === "watched" && (
-            <div>
-              <h2 className="mb-6 text-2xl font-bold text-foreground">Watched Movies</h2>
-              {watched.length > 0 ? (
-                <MovieList movies={watched} type="watched" onRemove={removeWatched} />
-              ) : (
-                <div className="rounded-lg border border-dashed border-border p-8 text-center">
-                  <p className="text-muted-foreground">You haven't watched any movies yet.</p>
-                </div>
-              )}
-            </div>
-          )}
-        </>
-      )}
     </div>
   )
 }
