@@ -90,8 +90,16 @@ export function RecommendedMovies({ onMovieAdded }: RecommendedMoviesProps) {
   }
 
   return (
-    <div className="rounded-lg border border-border bg-card p-6">
-      <h2 className="mb-6 text-2xl font-bold text-foreground">Recommended Movies</h2>
+    <div>
+      <div className="mb-6 flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10 text-xl">
+          ⭐
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold text-foreground">Recommended Movies</h2>
+          <p className="text-xs text-muted-foreground">Curated picks for you</p>
+        </div>
+      </div>
       
       <Tabs value={type} onValueChange={(v) => setType(v as typeof type)}>
         <TabsList className="grid w-full grid-cols-5">
@@ -112,11 +120,11 @@ export function RecommendedMovies({ onMovieAdded }: RecommendedMoviesProps) {
               <p className="text-muted-foreground">No movies available.</p>
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {movies.map((movie) => (
                 <div
                   key={movie.id}
-                  className="group overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/10"
+                  className="group overflow-hidden rounded-lg border border-border bg-muted/30 transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/20"
                 >
                   <div className="relative overflow-hidden bg-muted">
                     <img

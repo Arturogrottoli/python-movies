@@ -105,7 +105,8 @@ export function SearchMovies({ onMovieAdded }: SearchMoviesProps) {
   }
 
   return (
-    <div className="rounded-lg border border-border bg-card p-6">
+    <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
+      <h2 className="mb-4 text-xl font-semibold text-foreground">Search Movies</h2>
       <div className="flex flex-col gap-4 sm:flex-row">
         <div className="flex-1">
           <Input
@@ -113,14 +114,14 @@ export function SearchMovies({ onMovieAdded }: SearchMoviesProps) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-            className="bg-input"
+            className="bg-input border-border"
           />
         </div>
-        <Button onClick={handleSearch} disabled={loading} className="bg-primary hover:bg-primary/90">
+        <Button onClick={handleSearch} disabled={loading} className="bg-primary hover:bg-primary/90 text-primary-foreground">
           {loading ? "Searching..." : "Search"}
         </Button>
       </div>
-      <p className="mt-3 text-xs text-muted-foreground">Search for movies by title or director to add them to your list</p>
+      <p className="mt-3 text-sm text-muted-foreground">Search for movies by title or director to add them to your list</p>
 
       {showResults && results.length > 0 && (
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

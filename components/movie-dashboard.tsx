@@ -174,82 +174,133 @@ export function MovieDashboard() {
   }, [fetchWatchlist])
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mb-8 grid gap-6 lg:grid-cols-2">
-        <div>
-          <div className="mb-8 border-b border-border">
-            <div className="flex gap-4">
+    <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 -z-10 overflow-hidden opacity-30">
+        <div className="absolute -left-20 -top-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl"></div>
+        <div className="absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-secondary/10 blur-3xl"></div>
+      </div>
+
+      <div className="mb-12">
+        <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-br from-card via-card to-card/80 p-8 shadow-2xl backdrop-blur-sm">
+          <div className="absolute right-0 top-0 h-32 w-32 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/5 blur-2xl"></div>
+          <div className="relative">
+            <div className="mb-4 flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/60 text-2xl shadow-lg shadow-primary/20">
+                🔍
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-foreground">Discover Movies</h2>
+                <p className="text-muted-foreground">Search and add movies to your watchlist</p>
+              </div>
+            </div>
+            <SearchMovies onMovieAdded={handleMovieAdded} />
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-12 grid gap-8 lg:grid-cols-2">
+        <div className="group relative overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-br from-card via-card to-card/90 p-8 shadow-2xl transition-all hover:shadow-primary/10">
+          <div className="absolute right-0 top-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/5 blur-3xl transition-all group-hover:bg-primary/10"></div>
+          <div className="relative">
+            <div className="mb-6 flex items-center justify-between border-b border-border/50 pb-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-xl">
+                  {activeTab === "watchlist" ? "📋" : "✅"}
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">My Lists</h3>
+              </div>
+            </div>
+            <div className="mb-6 flex gap-2 rounded-lg bg-muted/30 p-1">
               <button
                 onClick={() => setActiveTab("watchlist")}
-                className={`px-4 py-3 font-semibold transition-colors ${
+                className={`flex-1 px-4 py-2.5 font-semibold transition-all rounded-md ${
                   activeTab === "watchlist"
-                    ? "border-b-2 border-primary text-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
-                My List ({watchlist.length})
+                Watchlist ({watchlist.length})
               </button>
               <button
                 onClick={() => setActiveTab("watched")}
-                className={`px-4 py-3 font-semibold transition-colors ${
+                className={`flex-1 px-4 py-2.5 font-semibold transition-all rounded-md ${
                   activeTab === "watched"
-                    ? "border-b-2 border-primary text-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
                 Watched ({watched.length})
               </button>
             </div>
+
+            {loading ? (
+              <div className="flex items-center justify-center py-20">
+                <div className="flex flex-col items-center gap-4">
+                  <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+                  <p className="text-muted-foreground">Loading...</p>
+                </div>
+              </div>
+            ) : (
+              <>
+                {activeTab === "watchlist" && (
+                  <div>
+                    {watchlist.length > 0 ? (
+                      <MovieList
+                        movies={watchlist}
+                        type="watchlist"
+                        onMarkWatched={markAsWatched}
+                        onDeleteFromWatchlist={removeFromWatchlist}
+                      />
+                    ) : (
+                      <div className="rounded-xl border-2 border-dashed border-border bg-muted/20 p-16 text-center">
+                        <div className="mb-4 text-6xl">🎬</div>
+                        <p className="text-lg text-muted-foreground">No movies in your list yet</p>
+                        <p className="mt-2 text-sm text-muted-foreground/80">Search and add some movies to get started!</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {activeTab === "watched" && (
+                  <div>
+                    {watched.length > 0 ? (
+                      <MovieList movies={watched} type="watched" onRemove={removeWatched} />
+                    ) : (
+                      <div className="rounded-xl border-2 border-dashed border-border bg-muted/20 p-16 text-center">
+                        <div className="mb-4 text-6xl">📺</div>
+                        <p className="text-lg text-muted-foreground">You haven't watched any movies yet</p>
+                        <p className="mt-2 text-sm text-muted-foreground/80">Start watching and earning points!</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </>
+            )}
           </div>
-
-          {loading ? (
-            <div className="flex items-center justify-center py-12">
-              <p className="text-muted-foreground">Loading...</p>
-            </div>
-          ) : (
-            <>
-              {activeTab === "watchlist" && (
-                <div>
-                  <h2 className="mb-6 text-2xl font-bold text-foreground">My List</h2>
-                  {watchlist.length > 0 ? (
-                    <MovieList
-                      movies={watchlist}
-                      type="watchlist"
-                      onMarkWatched={markAsWatched}
-                      onDeleteFromWatchlist={removeFromWatchlist}
-                    />
-                  ) : (
-                    <div className="rounded-lg border border-dashed border-border p-8 text-center">
-                      <p className="text-muted-foreground">No movies in your list. Search and add some movies.</p>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {activeTab === "watched" && (
-                <div>
-                  <h2 className="mb-6 text-2xl font-bold text-foreground">Watched Movies</h2>
-                  {watched.length > 0 ? (
-                    <MovieList movies={watched} type="watched" onRemove={removeWatched} />
-                  ) : (
-                    <div className="rounded-lg border border-dashed border-border p-8 text-center">
-                      <p className="text-muted-foreground">You haven't watched any movies yet.</p>
-                    </div>
-                  )}
-                </div>
-              )}
-            </>
-          )}
         </div>
-        <RecommendedMovies onMovieAdded={handleMovieAdded} />
+
+        <div className="group relative overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-br from-card via-card to-card/90 p-8 shadow-2xl transition-all hover:shadow-secondary/10">
+          <div className="absolute right-0 top-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-secondary/5 blur-3xl transition-all group-hover:bg-secondary/10"></div>
+          <div className="relative">
+            <RecommendedMovies onMovieAdded={handleMovieAdded} />
+          </div>
+        </div>
       </div>
 
-      <div className="mb-8">
-        <SearchMovies onMovieAdded={handleMovieAdded} />
-      </div>
-
-      <div className="mb-8">
-        <Leaderboard />
+      <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-br from-card via-card to-card/90 p-8 shadow-2xl">
+        <div className="absolute right-0 top-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/5 blur-3xl"></div>
+        <div className="relative">
+          <div className="mb-6 flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/60 text-2xl shadow-lg shadow-primary/20">
+              🏆
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-foreground">Leaderboard</h2>
+              <p className="text-sm text-muted-foreground">Compete with other movie enthusiasts</p>
+            </div>
+          </div>
+          <Leaderboard />
+        </div>
       </div>
 
     </div>

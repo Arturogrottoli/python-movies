@@ -77,14 +77,14 @@ export function AuthForm({ onAuthSuccess }: AuthFormProps) {
   }
 
   return (
-    <div className="mx-auto max-w-md rounded-xl border border-white/20 bg-white/10 backdrop-blur-lg p-8 shadow-2xl">
-      <h2 className="mb-6 text-3xl font-bold text-center text-white">
+    <div className="mx-auto max-w-md rounded-xl border border-border bg-card/95 backdrop-blur-lg p-8 shadow-2xl">
+      <h2 className="mb-6 text-3xl font-bold text-center text-foreground">
         {isLogin ? "Sign In" : "Sign Up"}
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label htmlFor="username" className="mb-2 block text-sm font-medium text-white">
+          <label htmlFor="username" className="mb-2 block text-sm font-medium text-foreground">
             Username
           </label>
           <Input
@@ -93,13 +93,13 @@ export function AuthForm({ onAuthSuccess }: AuthFormProps) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Enter your username"
-            className="w-full bg-white/90 border-white/30 text-gray-900 placeholder:text-gray-500"
+            className="w-full bg-input border-border text-foreground placeholder:text-muted-foreground"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="password" className="mb-2 block text-sm font-medium text-white">
+          <label htmlFor="password" className="mb-2 block text-sm font-medium text-foreground">
             Password
           </label>
           <Input
@@ -108,24 +108,24 @@ export function AuthForm({ onAuthSuccess }: AuthFormProps) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
-            className="w-full bg-white/90 border-white/30 text-gray-900 placeholder:text-gray-500"
+            className="w-full bg-input border-border text-foreground placeholder:text-muted-foreground"
             required
           />
         </div>
 
-        <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white" disabled={loading}>
+        <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={loading}>
           {loading ? "Loading..." : isLogin ? "Sign In" : "Sign Up"}
         </Button>
       </form>
 
-      <div className="mt-4 text-center">
+      <div className="mt-6 text-center">
         <button
           onClick={() => {
             setIsLogin(!isLogin)
             setUsername("")
             setPassword("")
           }}
-          className="text-sm text-white/80 hover:text-white transition-colors"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           {isLogin ? "Don't have an account? Sign up" : "Already have an account? Sign in"}
         </button>

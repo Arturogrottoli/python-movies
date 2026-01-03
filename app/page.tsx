@@ -123,23 +123,28 @@ export default function Home() {
   if (!isAuthenticated) {
     console.log("🎬 [Home] Renderizando: AuthForm (no autenticado)")
     return (
-      <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(120,119,198,0.3),transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(99,102,241,0.3),transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_20%,rgba(168,85,247,0.2),transparent_50%)]"></div>
+      <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(251,191,36,0.15),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(34,211,238,0.15),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_20%,rgba(251,191,36,0.1),transparent_50%)]"></div>
         </div>
-        <div className="absolute inset-0 grid grid-cols-4 gap-4 p-4 opacity-5">
+        <div className="absolute inset-0 grid grid-cols-4 gap-4 p-4 opacity-[0.03]">
           {[...Array(20)].map((_, i) => (
-            <div key={i} className="aspect-[2/3] rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm"></div>
+            <div key={i} className="aspect-[2/3] rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20"></div>
           ))}
         </div>
         <div className="relative z-10 w-full max-w-md px-4">
-          <div className="mb-8 text-center">
-            <h1 className="mb-2 text-6xl font-bold text-white drop-shadow-2xl">
-              🎬 Movie List Game
+          <div className="mb-10 text-center">
+            <div className="mb-4 flex justify-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-3xl shadow-lg shadow-primary/20">
+                🎬
+              </div>
+            </div>
+            <h1 className="mb-3 text-5xl font-bold text-foreground">
+              Movie Points Tracker
             </h1>
-            <p className="text-xl text-white/80 drop-shadow-lg">
+            <p className="text-lg text-muted-foreground">
               Track your movies and earn points
             </p>
           </div>

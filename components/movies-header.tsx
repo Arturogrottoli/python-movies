@@ -56,26 +56,29 @@ export function MoviesHeader({ onLogout }: MoviesHeaderProps) {
   }, [onLogout])
 
   return (
-    <header className="border-b border-border bg-card/50 backdrop-blur">
+    <header className="border-b border-border bg-card/80 backdrop-blur-sm shadow-sm">
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-primary-foreground">
-              <span className="text-lg font-bold">🎬</span>
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-2xl shadow-md shadow-primary/20">
+              🎬
             </div>
             <h1 className="text-3xl font-bold text-foreground">Movie Points Tracker</h1>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
             <div className="text-right">
-              <p className="text-sm text-muted-foreground">Total Points</p>
-              <p className="text-2xl font-bold text-primary">
+              <p className="text-sm font-medium text-muted-foreground">Total Points</p>
+              <p className="text-3xl font-bold text-primary">
                 {loading ? "..." : totalPoints.toLocaleString()}
               </p>
             </div>
             {currentUser && (
-              <div className="flex items-center gap-3">
-                <span className="text-sm text-muted-foreground">{currentUser.username}</span>
-                <Button variant="outline" size="sm" onClick={onLogout}>
+              <div className="flex items-center gap-4">
+                <div className="text-right">
+                  <p className="text-xs text-muted-foreground">Signed in as</p>
+                  <p className="text-sm font-semibold text-foreground">{currentUser.username}</p>
+                </div>
+                <Button variant="outline" size="sm" onClick={onLogout} className="border-border hover:bg-muted">
                   Logout
                 </Button>
               </div>
