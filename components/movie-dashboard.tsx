@@ -140,12 +140,6 @@ export function MovieDashboard() {
     [fetchWatchlist, fetchWatched],
   )
 
-  const removeWatched = useCallback(
-    async (movieId: number) => {
-      await fetchWatched()
-    },
-    [fetchWatched],
-  )
 
   const removeFromWatchlist = useCallback(
     async (movieId: number) => {
@@ -264,7 +258,7 @@ export function MovieDashboard() {
                 {activeTab === "watched" && (
                   <div>
                     {watched.length > 0 ? (
-                      <MovieList movies={watched} type="watched" onRemove={removeWatched} />
+                      <MovieList movies={watched} type="watched" />
                     ) : (
                       <div className="rounded-xl border-2 border-dashed border-border bg-muted/20 p-16 text-center">
                         <div className="mb-4 text-6xl">📺</div>

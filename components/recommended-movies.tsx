@@ -74,9 +74,10 @@ export function RecommendedMovies({ onMovieAdded }: RecommendedMoviesProps) {
         onMovieAdded?.()
       } else {
         const errorData = await response.json().catch(() => ({}))
+        const errorMessage = errorData.error || "Failed to add movie"
         toast({
-          title: "Error",
-          description: errorData.error || "Failed to add movie",
+          title: errorMessage.includes("already in your watchlist") ? "Already in list" : "Error",
+          description: errorMessage,
           variant: "destructive",
         })
       }

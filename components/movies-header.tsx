@@ -56,29 +56,39 @@ export function MoviesHeader({ onLogout }: MoviesHeaderProps) {
   }, [onLogout])
 
   return (
-    <header className="border-b border-border bg-card/80 backdrop-blur-sm shadow-sm">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-border/50 bg-card/95 backdrop-blur-xl shadow-lg shadow-black/5">
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-2xl shadow-md shadow-primary/20">
+            <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-primary to-primary/80 text-3xl shadow-lg shadow-primary/30 ring-2 ring-primary/20">
               🎬
             </div>
-            <h1 className="text-3xl font-bold text-foreground">Movie Points Tracker</h1>
+            <div>
+              <h1 className="bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-3xl font-black tracking-tight text-transparent">
+                Movie Points Tracker
+              </h1>
+              <p className="text-xs text-muted-foreground/80">Track your cinema journey</p>
+            </div>
           </div>
-          <div className="flex items-center gap-8">
-            <div className="text-right">
-              <p className="text-sm font-medium text-muted-foreground">Total Points</p>
-              <p className="text-3xl font-bold text-primary">
+          <div className="flex items-center gap-6">
+            <div className="rounded-xl border border-primary/20 bg-gradient-to-br from-primary/10 to-primary/5 px-5 py-3 text-right backdrop-blur-sm">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Total Points</p>
+              <p className="mt-1 text-3xl font-black text-primary">
                 {loading ? "..." : totalPoints.toLocaleString()}
               </p>
             </div>
             {currentUser && (
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <div className="text-right">
-                  <p className="text-xs text-muted-foreground">Signed in as</p>
-                  <p className="text-sm font-semibold text-foreground">{currentUser.username}</p>
+                  <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Signed in as</p>
+                  <p className="mt-0.5 text-sm font-bold text-foreground">{currentUser.username}</p>
                 </div>
-                <Button variant="outline" size="sm" onClick={onLogout} className="border-border hover:bg-muted">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={onLogout} 
+                  className="h-9 border-border/50 bg-card/50 font-semibold hover:bg-muted/80 hover:border-border transition-all"
+                >
                   Logout
                 </Button>
               </div>

@@ -347,6 +347,20 @@ async def add_to_watchlist(movie: Movie, current_user: dict = Depends(get_curren
         conn = get_db()
         cursor = conn.cursor()
 
+        # Check if movie already exists in watchlist (not watched)
+        cursor.execute(
+            """
+            SELECT id FROM movies 
+            WHERE user_id = ? AND title = ? AND year = ?
+            AND id NOT IN (SELECT movie_id FROM watched_movies)
+        """,
+            (current_user["id"], movie.title, movie.year),
+        )
+        existing = cursor.fetchone()
+        if existing:
+            conn.close()
+            raise HTTPException(status_code=400, detail="This movie is already in your watchlist")
+
         cursor.execute(
             """
             INSERT INTO movies (user_id, title, year, rating, poster)
@@ -360,6 +374,8 @@ async def add_to_watchlist(movie: Movie, current_user: dict = Depends(get_curren
         conn.close()
 
         return {"success": True, "movie_id": movie_id, "message": "Movie added to watchlist"}
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

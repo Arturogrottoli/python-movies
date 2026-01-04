@@ -55,10 +55,6 @@ export function MovieList({ movies, type, onMarkWatched, onRemove, onDeleteFromW
                       </Button>
                     )}
                   </>
-                ) : type === "watched" && onRemove ? (
-                  <Button size="sm" onClick={() => onRemove(movie.id)} variant="secondary" className="w-full">
-                    Remove
-                  </Button>
                 ) : null}
               </div>
             </div>

@@ -92,9 +92,16 @@ export function SearchMovies({ onMovieAdded }: SearchMoviesProps) {
         })
       } else {
         const errorData = await response.json()
-        toast.error("Error adding movie", {
-          description: errorData.error || "Failed to add movie",
-        })
+        const errorMessage = errorData.error || "Failed to add movie"
+        if (errorMessage.includes("already in your watchlist")) {
+          toast.error("Movie already in list", {
+            description: "This movie is already in your watchlist",
+          })
+        } else {
+          toast.error("Error adding movie", {
+            description: errorMessage,
+          })
+        }
       }
     } catch (error) {
       console.error("Error adding movie:", error)
