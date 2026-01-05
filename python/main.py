@@ -506,6 +506,35 @@ async def get_watched_movies(current_user: dict = Depends(get_current_user)):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.post("/api/movies/unmark-watched")
+async def unmark_watched(movie_id: int, current_user: dict = Depends(get_current_user)):
+    """Move a movie from watched back to watchlist"""
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT wm.id FROM watched_movies wm
+            JOIN movies m ON wm.movie_id = m.id
+            WHERE wm.movie_id = ? AND m.user_id = ?
+        """,
+            (movie_id, current_user["id"]),
+        )
+        if not cursor.fetchone():
+            raise HTTPException(status_code=404, detail="Watched movie not found or does not belong to user")
+
+        cursor.execute("DELETE FROM watched_movies WHERE movie_id = ?", (movie_id,))
+        conn.commit()
+        conn.close()
+
+        return {"success": True, "message": "Movie moved back to watchlist"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get("/api/stats/total-points")
 async def get_total_points(current_user: dict = Depends(get_current_user)):
     """Get total points earned"""

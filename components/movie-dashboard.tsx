@@ -163,6 +163,53 @@ export function MovieDashboard() {
     [fetchWatchlist],
   )
 
+  const removeWatched = useCallback(
+    async (movieId: number) => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/movies/unmark-watched?movie_id=${movieId}`, {
+          method: "POST",
+          headers: getAuthHeaders(),
+        })
+
+        if (response.ok) {
+          await Promise.all([fetchWatchlist(), fetchWatched()])
+        } else if (response.status === 401) {
+          localStorage.removeItem("authToken")
+          localStorage.removeItem("currentUser")
+          window.location.reload()
+        } else {
+          const errorData = await response.json().catch(() => ({}))
+          console.error("Error moving movie back to watchlist:", errorData)
+        }
+      } catch (error) {
+        console.error("Error moving movie back to watchlist:", error)
+      }
+    },
+    [fetchWatchlist, fetchWatched],
+  )
+
+  const deleteWatched = useCallback(
+    async (movieId: number) => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/movies/${movieId}`, {
+          method: "DELETE",
+          headers: getAuthHeaders(),
+        })
+
+        if (response.ok) {
+          await fetchWatched()
+        } else if (response.status === 401) {
+          localStorage.removeItem("authToken")
+          localStorage.removeItem("currentUser")
+          window.location.reload()
+        }
+      } catch (error) {
+        console.error("Error deleting watched movie:", error)
+      }
+    },
+    [fetchWatched],
+  )
+
   const handleMovieAdded = useCallback(() => {
     fetchWatchlist()
   }, [fetchWatchlist])
@@ -258,7 +305,7 @@ export function MovieDashboard() {
                 {activeTab === "watched" && (
                   <div>
                     {watched.length > 0 ? (
-                      <MovieList movies={watched} type="watched" />
+                      <MovieList movies={watched} type="watched" onRemove={removeWatched} onDeleteWatched={deleteWatched} />
                     ) : (
                       <div className="rounded-xl border-2 border-dashed border-border bg-muted/20 p-16 text-center">
                         <div className="mb-4 text-6xl">📺</div>

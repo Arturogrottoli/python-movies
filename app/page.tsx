@@ -5,6 +5,7 @@ import { MoviesHeader } from "@/components/movies-header"
 import { MovieDashboard } from "@/components/movie-dashboard"
 import { AuthForm } from "@/components/auth-form"
 import { MovieLoader } from "@/components/movie-loader"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -156,9 +157,12 @@ export default function Home() {
 
   console.log("🎬 [Home] Renderizando: Dashboard (autenticado)")
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background flex flex-col">
       <MoviesHeader onLogout={handleLogout} />
-      <MovieDashboard />
+      <div className="flex-1">
+        <MovieDashboard />
+      </div>
+      <Footer />
     </main>
   )
 }

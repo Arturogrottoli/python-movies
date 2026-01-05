@@ -318,143 +318,188 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2
 "use client";
 ;
 ;
-function MovieList({ movies, type, onMarkWatched, onRemove, onDeleteFromWatchlist }) {
+function MovieList({ movies, type, onMarkWatched, onRemove, onDeleteFromWatchlist, onDeleteWatched }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "grid gap-6 sm:grid-cols-2 lg:grid-cols-4",
+        className: "grid gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3",
         children: movies.map((movie)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "group overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/10",
+                className: "group overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-primary hover:shadow-xl hover:shadow-primary/10",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "relative overflow-hidden bg-muted",
+                        className: "relative overflow-hidden bg-muted aspect-square",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                 src: movie.poster || "/placeholder.svg",
                                 alt: movie.title,
-                                className: "h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                className: "h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 31,
+                                lineNumber: 32,
                                 columnNumber: 13
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-2",
-                                    children: type === "watchlist" && onMarkWatched ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                                size: "sm",
-                                                onClick: ()=>onMarkWatched(movie.id),
-                                                className: "w-full bg-primary hover:bg-primary/90",
-                                                children: "Mark as Watched"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/movie-list.tsx",
-                                                lineNumber: 40,
-                                                columnNumber: 21
-                                            }, this),
-                                            onDeleteFromWatchlist && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                                size: "sm",
-                                                onClick: ()=>onDeleteFromWatchlist(movie.id),
-                                                variant: "destructive",
-                                                className: "w-full",
-                                                children: "Remove"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/movie-list.tsx",
-                                                lineNumber: 48,
-                                                columnNumber: 23
-                                            }, this)
-                                        ]
-                                    }, void 0, true) : null
-                                }, void 0, false, {
-                                    fileName: "[project]/components/movie-list.tsx",
-                                    lineNumber: 37,
-                                    columnNumber: 15
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 36,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/movie-list.tsx",
-                        lineNumber: 30,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "p-4 relative",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                className: "mb-1 line-clamp-2 text-sm font-semibold text-foreground",
-                                children: movie.title
-                            }, void 0, false, {
-                                fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 64,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "mb-3 flex items-center justify-between text-xs text-muted-foreground",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: movie.year
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/movie-list.tsx",
-                                        lineNumber: 66,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "flex items-center gap-1",
-                                        children: [
-                                            "⭐ ",
-                                            movie.rating
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/components/movie-list.tsx",
-                                        lineNumber: 67,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 65,
-                                columnNumber: 13
-                            }, this),
-                            type === "watchlist" && onDeleteFromWatchlist && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            type === "watchlist" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: (e)=>{
                                     e.stopPropagation();
-                                    onDeleteFromWatchlist(movie.id);
+                                    onDeleteFromWatchlist?.(movie.id);
                                 },
-                                className: "absolute top-2 right-2 rounded-full bg-destructive/80 hover:bg-destructive text-destructive-foreground p-1.5 opacity-0 group-hover:opacity-100 transition-opacity",
+                                className: "absolute top-3 right-3 rounded-full bg-destructive/90 hover:bg-destructive text-destructive-foreground p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-10",
                                 "aria-label": "Remove movie",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                     xmlns: "http://www.w3.org/2000/svg",
-                                    width: "16",
-                                    height: "16",
+                                    width: "18",
+                                    height: "18",
                                     viewBox: "0 0 24 24",
                                     fill: "none",
                                     stroke: "currentColor",
-                                    strokeWidth: "2",
+                                    strokeWidth: "2.5",
                                     strokeLinecap: "round",
                                     strokeLinejoin: "round",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                         d: "M18 6L6 18M6 6l12 12"
                                     }, void 0, false, {
                                         fileName: "[project]/components/movie-list.tsx",
-                                        lineNumber: 89,
+                                        lineNumber: 57,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/movie-list.tsx",
-                                    lineNumber: 78,
+                                    lineNumber: 46,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 70,
+                                lineNumber: 38,
                                 columnNumber: 15
                             }, this),
+                            type === "watched" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: (e)=>{
+                                    e.stopPropagation();
+                                    onDeleteWatched?.(movie.id);
+                                },
+                                className: "absolute top-3 right-3 rounded-full bg-destructive/90 hover:bg-destructive text-destructive-foreground p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-10",
+                                "aria-label": "Delete movie",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "18",
+                                    height: "18",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    strokeWidth: "2.5",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                        d: "M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/movie-list.tsx",
+                                        lineNumber: 81,
+                                        columnNumber: 19
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/components/movie-list.tsx",
+                                    lineNumber: 70,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/components/movie-list.tsx",
+                                lineNumber: 62,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-2.5 pointer-events-auto",
+                                    children: [
+                                        type === "watchlist" && onMarkWatched && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                            size: "sm",
+                                            onClick: ()=>onMarkWatched(movie.id),
+                                            className: "w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg min-h-[36px]",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "truncate block",
+                                                children: "Marcar Vista"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/movie-list.tsx",
+                                                lineNumber: 93,
+                                                columnNumber: 21
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/movie-list.tsx",
+                                            lineNumber: 88,
+                                            columnNumber: 19
+                                        }, this),
+                                        type === "watched" && onRemove && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                            size: "sm",
+                                            onClick: ()=>onRemove(movie.id),
+                                            className: "w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow-lg min-h-[36px]",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "truncate block",
+                                                children: "A Watchlist"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/movie-list.tsx",
+                                                lineNumber: 102,
+                                                columnNumber: 21
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/movie-list.tsx",
+                                            lineNumber: 97,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/movie-list.tsx",
+                                    lineNumber: 86,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/components/movie-list.tsx",
+                                lineNumber: 85,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/movie-list.tsx",
+                        lineNumber: 31,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "p-5",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "mb-2 line-clamp-2 text-base font-semibold text-foreground leading-tight",
+                                children: movie.title
+                            }, void 0, false, {
+                                fileName: "[project]/components/movie-list.tsx",
+                                lineNumber: 110,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-3 flex items-center justify-between text-sm text-muted-foreground",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        children: movie.year
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/movie-list.tsx",
+                                        lineNumber: 112,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "flex items-center gap-1 font-medium",
+                                        children: [
+                                            "⭐ ",
+                                            movie.rating
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/movie-list.tsx",
+                                        lineNumber: 113,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/movie-list.tsx",
+                                lineNumber: 111,
+                                columnNumber: 13
+                            }, this),
                             type === "watched" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "rounded bg-primary/10 px-2 py-1 text-center",
+                                className: "rounded-lg bg-primary/10 px-3 py-2 text-center border border-primary/20",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "text-sm font-bold text-primary",
                                     children: [
@@ -464,29 +509,29 @@ function MovieList({ movies, type, onMarkWatched, onRemove, onDeleteFromWatchlis
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/movie-list.tsx",
-                                    lineNumber: 96,
+                                    lineNumber: 117,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-list.tsx",
-                                lineNumber: 95,
+                                lineNumber: 116,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/movie-list.tsx",
-                        lineNumber: 63,
+                        lineNumber: 109,
                         columnNumber: 11
                     }, this)
                 ]
             }, movie.id, true, {
                 fileName: "[project]/components/movie-list.tsx",
-                lineNumber: 26,
+                lineNumber: 27,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/movie-list.tsx",
-        lineNumber: 24,
+        lineNumber: 25,
         columnNumber: 5
     }, this);
 }
@@ -642,7 +687,7 @@ function SearchMovies({ onMovieAdded }) {
                             value: search,
                             onChange: (e)=>setSearch(e.target.value),
                             onKeyDown: (e)=>e.key === "Enter" && handleSearch(),
-                            className: "bg-input border-border"
+                            className: "bg-orange-950/30 border-2 border-orange-500/40 focus:border-orange-500 focus:bg-orange-950/50 placeholder:text-orange-300/50 text-orange-100 transition-all"
                         }, void 0, false, {
                             fileName: "[project]/components/search-movies.tsx",
                             lineNumber: 119,
@@ -1753,6 +1798,51 @@ function MovieDashboard() {
     }, [
         fetchWatchlist
     ]);
+    const removeWatched = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (movieId)=>{
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/movies/unmark-watched?movie_id=${movieId}`, {
+                method: "POST",
+                headers: getAuthHeaders()
+            });
+            if (response.ok) {
+                await Promise.all([
+                    fetchWatchlist(),
+                    fetchWatched()
+                ]);
+            } else if (response.status === 401) {
+                localStorage.removeItem("authToken");
+                localStorage.removeItem("currentUser");
+                window.location.reload();
+            } else {
+                const errorData = await response.json().catch(()=>({}));
+                console.error("Error moving movie back to watchlist:", errorData);
+            }
+        } catch (error) {
+            console.error("Error moving movie back to watchlist:", error);
+        }
+    }, [
+        fetchWatchlist,
+        fetchWatched
+    ]);
+    const deleteWatched = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (movieId)=>{
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/movies/${movieId}`, {
+                method: "DELETE",
+                headers: getAuthHeaders()
+            });
+            if (response.ok) {
+                await fetchWatched();
+            } else if (response.status === 401) {
+                localStorage.removeItem("authToken");
+                localStorage.removeItem("currentUser");
+                window.location.reload();
+            }
+        } catch (error) {
+            console.error("Error deleting watched movie:", error);
+        }
+    }, [
+        fetchWatched
+    ]);
     const handleMovieAdded = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(()=>{
         fetchWatchlist();
     }, [
@@ -1768,20 +1858,20 @@ function MovieDashboard() {
                         className: "absolute -left-20 -top-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
                     }, void 0, false, {
                         fileName: "[project]/components/movie-dashboard.tsx",
-                        lineNumber: 173,
+                        lineNumber: 220,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-secondary/10 blur-3xl"
                     }, void 0, false, {
                         fileName: "[project]/components/movie-dashboard.tsx",
-                        lineNumber: 174,
+                        lineNumber: 221,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/movie-dashboard.tsx",
-                lineNumber: 172,
+                lineNumber: 219,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1793,7 +1883,7 @@ function MovieDashboard() {
                             className: "absolute right-0 top-0 h-32 w-32 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/5 blur-2xl"
                         }, void 0, false, {
                             fileName: "[project]/components/movie-dashboard.tsx",
-                            lineNumber: 179,
+                            lineNumber: 226,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1807,7 +1897,7 @@ function MovieDashboard() {
                                             children: "🔍"
                                         }, void 0, false, {
                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                            lineNumber: 182,
+                                            lineNumber: 229,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1817,7 +1907,7 @@ function MovieDashboard() {
                                                     children: "Discover Movies"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 186,
+                                                    lineNumber: 233,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1825,43 +1915,43 @@ function MovieDashboard() {
                                                     children: "Search and add movies to your watchlist"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 187,
+                                                    lineNumber: 234,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                            lineNumber: 185,
+                                            lineNumber: 232,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                    lineNumber: 181,
+                                    lineNumber: 228,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$search$2d$movies$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SearchMovies"], {
                                     onMovieAdded: handleMovieAdded
                                 }, void 0, false, {
                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                    lineNumber: 190,
+                                    lineNumber: 237,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/movie-dashboard.tsx",
-                            lineNumber: 180,
+                            lineNumber: 227,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/movie-dashboard.tsx",
-                    lineNumber: 178,
+                    lineNumber: 225,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/movie-dashboard.tsx",
-                lineNumber: 177,
+                lineNumber: 224,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1874,7 +1964,7 @@ function MovieDashboard() {
                                 className: "absolute right-0 top-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/5 blur-3xl transition-all group-hover:bg-primary/10"
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 197,
+                                lineNumber: 244,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1890,7 +1980,7 @@ function MovieDashboard() {
                                                     children: activeTab === "watchlist" ? "📋" : "✅"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 201,
+                                                    lineNumber: 248,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1898,18 +1988,18 @@ function MovieDashboard() {
                                                     children: "My Lists"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 204,
+                                                    lineNumber: 251,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                            lineNumber: 200,
+                                            lineNumber: 247,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/movie-dashboard.tsx",
-                                        lineNumber: 199,
+                                        lineNumber: 246,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1925,7 +2015,7 @@ function MovieDashboard() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                                lineNumber: 208,
+                                                lineNumber: 255,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1938,13 +2028,13 @@ function MovieDashboard() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                                lineNumber: 218,
+                                                lineNumber: 265,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/movie-dashboard.tsx",
-                                        lineNumber: 207,
+                                        lineNumber: 254,
                                         columnNumber: 13
                                     }, this),
                                     loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1956,7 +2046,7 @@ function MovieDashboard() {
                                                     className: "h-10 w-10 animate-spin rounded-full border-4 border-primary border-t-transparent"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 233,
+                                                    lineNumber: 280,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1964,18 +2054,18 @@ function MovieDashboard() {
                                                     children: "Loading..."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 234,
+                                                    lineNumber: 281,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                            lineNumber: 232,
+                                            lineNumber: 279,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/movie-dashboard.tsx",
-                                        lineNumber: 231,
+                                        lineNumber: 278,
                                         columnNumber: 15
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                         children: [
@@ -1987,7 +2077,7 @@ function MovieDashboard() {
                                                     onDeleteFromWatchlist: removeFromWatchlist
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 242,
+                                                    lineNumber: 289,
                                                     columnNumber: 23
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "rounded-xl border-2 border-dashed border-border bg-muted/20 p-16 text-center",
@@ -1997,7 +2087,7 @@ function MovieDashboard() {
                                                             children: "🎬"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                                            lineNumber: 250,
+                                                            lineNumber: 297,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2005,7 +2095,7 @@ function MovieDashboard() {
                                                             children: "No movies in your list yet"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                                            lineNumber: 251,
+                                                            lineNumber: 298,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2013,27 +2103,29 @@ function MovieDashboard() {
                                                             children: "Search and add some movies to get started!"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                                            lineNumber: 252,
+                                                            lineNumber: 299,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 249,
+                                                    lineNumber: 296,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                                lineNumber: 240,
+                                                lineNumber: 287,
                                                 columnNumber: 19
                                             }, this),
                                             activeTab === "watched" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 children: watched.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$movie$2d$list$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MovieList"], {
                                                     movies: watched,
-                                                    type: "watched"
+                                                    type: "watched",
+                                                    onRemove: removeWatched,
+                                                    onDeleteWatched: deleteWatched
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 261,
+                                                    lineNumber: 308,
                                                     columnNumber: 23
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "rounded-xl border-2 border-dashed border-border bg-muted/20 p-16 text-center",
@@ -2043,7 +2135,7 @@ function MovieDashboard() {
                                                             children: "📺"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                                            lineNumber: 264,
+                                                            lineNumber: 311,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2051,7 +2143,7 @@ function MovieDashboard() {
                                                             children: "You haven't watched any movies yet"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                                            lineNumber: 265,
+                                                            lineNumber: 312,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2059,18 +2151,18 @@ function MovieDashboard() {
                                                             children: "Start watching and earning points!"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/movie-dashboard.tsx",
-                                                            lineNumber: 266,
+                                                            lineNumber: 313,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                                    lineNumber: 263,
+                                                    lineNumber: 310,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                                lineNumber: 259,
+                                                lineNumber: 306,
                                                 columnNumber: 19
                                             }, this)
                                         ]
@@ -2078,13 +2170,13 @@ function MovieDashboard() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 198,
+                                lineNumber: 245,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/movie-dashboard.tsx",
-                        lineNumber: 196,
+                        lineNumber: 243,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2094,7 +2186,7 @@ function MovieDashboard() {
                                 className: "absolute right-0 top-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-secondary/5 blur-3xl transition-all group-hover:bg-secondary/10"
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 277,
+                                lineNumber: 324,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2103,24 +2195,24 @@ function MovieDashboard() {
                                     onMovieAdded: handleMovieAdded
                                 }, void 0, false, {
                                     fileName: "[project]/components/movie-dashboard.tsx",
-                                    lineNumber: 279,
+                                    lineNumber: 326,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 278,
+                                lineNumber: 325,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/movie-dashboard.tsx",
-                        lineNumber: 276,
+                        lineNumber: 323,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/movie-dashboard.tsx",
-                lineNumber: 195,
+                lineNumber: 242,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2130,7 +2222,7 @@ function MovieDashboard() {
                         className: "absolute right-0 top-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/5 blur-3xl"
                     }, void 0, false, {
                         fileName: "[project]/components/movie-dashboard.tsx",
-                        lineNumber: 285,
+                        lineNumber: 332,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2144,7 +2236,7 @@ function MovieDashboard() {
                                         children: "🏆"
                                     }, void 0, false, {
                                         fileName: "[project]/components/movie-dashboard.tsx",
-                                        lineNumber: 288,
+                                        lineNumber: 335,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2154,7 +2246,7 @@ function MovieDashboard() {
                                                 children: "Leaderboard"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                                lineNumber: 292,
+                                                lineNumber: 339,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2162,42 +2254,42 @@ function MovieDashboard() {
                                                 children: "Compete with other movie enthusiasts"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                                lineNumber: 293,
+                                                lineNumber: 340,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/movie-dashboard.tsx",
-                                        lineNumber: 291,
+                                        lineNumber: 338,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 287,
+                                lineNumber: 334,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$leaderboard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Leaderboard"], {}, void 0, false, {
                                 fileName: "[project]/components/movie-dashboard.tsx",
-                                lineNumber: 296,
+                                lineNumber: 343,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/movie-dashboard.tsx",
-                        lineNumber: 286,
+                        lineNumber: 333,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/movie-dashboard.tsx",
-                lineNumber: 284,
+                lineNumber: 331,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/movie-dashboard.tsx",
-        lineNumber: 171,
+        lineNumber: 218,
         columnNumber: 5
     }, this);
 }
@@ -2513,6 +2605,61 @@ function MovieLoader() {
     }, this);
 }
 }),
+"[project]/components/footer.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Footer",
+    ()=>Footer
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+"use client";
+;
+function Footer() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
+        className: "border-t border-orange-500/20 bg-gradient-to-r from-orange-950/95 via-orange-900/95 to-orange-950/95 backdrop-blur-xl shadow-xl shadow-orange-900/20",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex items-center justify-center",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-sm text-orange-300/80 font-medium",
+                    children: [
+                        "Este sitio fue realizado por",
+                        " ",
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "font-bold bg-gradient-to-r from-orange-200 to-orange-100 bg-clip-text text-transparent",
+                            children: "Arturo Grottoli"
+                        }, void 0, false, {
+                            fileName: "[project]/components/footer.tsx",
+                            lineNumber: 10,
+                            columnNumber: 13
+                        }, this),
+                        " ",
+                        "®"
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/footer.tsx",
+                    lineNumber: 8,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/footer.tsx",
+                lineNumber: 7,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "[project]/components/footer.tsx",
+            lineNumber: 6,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/components/footer.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+}),
 "[project]/app/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -2526,7 +2673,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$movies$2d$head
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$movie$2d$dashboard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/movie-dashboard.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$auth$2d$form$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/auth-form.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$movie$2d$loader$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/movie-loader.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$footer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/footer.tsx [app-ssr] (ecmascript)");
 "use client";
+;
 ;
 ;
 ;
@@ -2758,7 +2907,7 @@ function Home() {
     }
     console.log("🎬 [Home] Renderizando: Dashboard (autenticado)");
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-        className: "min-h-screen bg-background",
+        className: "min-h-screen bg-background flex flex-col",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$movies$2d$header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MoviesHeader"], {
                 onLogout: handleLogout
@@ -2767,9 +2916,21 @@ function Home() {
                 lineNumber: 161,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$movie$2d$dashboard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MovieDashboard"], {}, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex-1",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$movie$2d$dashboard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MovieDashboard"], {}, void 0, false, {
+                    fileName: "[project]/app/page.tsx",
+                    lineNumber: 163,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
                 lineNumber: 162,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$footer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Footer"], {}, void 0, false, {
+                fileName: "[project]/app/page.tsx",
+                lineNumber: 165,
                 columnNumber: 7
             }, this)
         ]
@@ -2782,4 +2943,4 @@ function Home() {
 }),
 ];
 
-//# sourceMappingURL=_d22cb526._.js.map
+//# sourceMappingURL=_180455d8._.js.map

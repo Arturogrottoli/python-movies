@@ -121,7 +121,7 @@ export function SearchMovies({ onMovieAdded }: SearchMoviesProps) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-            className="bg-input border-border"
+            className="bg-orange-950/30 border-2 border-orange-500/40 focus:border-orange-500 focus:bg-orange-950/50 placeholder:text-orange-300/50 text-orange-100 transition-all"
           />
         </div>
         <Button onClick={handleSearch} disabled={loading} className="bg-primary hover:bg-primary/90 text-primary-foreground">
