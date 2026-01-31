@@ -1,10 +1,14 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel
 from datetime import datetime, timedelta
 from contextlib import asynccontextmanager
-import sqlite3
+import psycopg2
+from psycopg2.extras import RealDictCursor
 import os
 import bcrypt
 from jose import JWTError, jwt
@@ -21,19 +25,25 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 # CORS configuration for Next.js frontend
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:8000").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:8000"],
+    allow_origins=CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Database configuration
-DB_PATH = "movies.db"
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise ValueError("La variable de entorno DATABASE_URL es requerida. Ej: DATABASE_URL=postgresql://user:pass@host:5432/dbname")
 
 # JWT configuration
-SECRET_KEY = "super-secret-key-fixed-2024"
+SECRET_KEY = os.getenv("SECRET_KEY")
+if not SECRET_KEY:
+    raise ValueError("La variable de entorno SECRET_KEY es requerida. Ej: SECRET_KEY=tu-clave-secreta")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 days
 
@@ -69,8 +79,7 @@ class MovieWatched(BaseModel):
 
 def get_db():
     """Get database connection"""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
+    conn = psycopg2.connect(DATABASE_URL)
     return conn
 
 
@@ -92,10 +101,7 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
     else:
         expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
-    print(f"🔐 [Backend] Creating token with payload: {to_encode}")
-    print(f"🔐 [Backend] SECRET_KEY used to create token: {SECRET_KEY[:20]}... (length: {len(SECRET_KEY)})")
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    print(f"🔐 [Backend] Token created (first 50 chars): {encoded_jwt[:50]}...")
     return encoded_jwt
 
 
@@ -117,9 +123,6 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
         if not token:
             print("🔐 [Backend] ❌ Empty token")
             raise credentials_exception
-        
-        print(f"🔐 [Backend] Validating token (first 50 chars): {token[:50]}...")
-        print(f"🔐 [Backend] SECRET_KEY used: {SECRET_KEY[:20]}... (length: {len(SECRET_KEY)})")
         
         try:
             payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
@@ -155,8 +158,8 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
         raise credentials_exception
 
     conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute("SELECT id, username FROM users WHERE id = ?", (user_id,))
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
+    cursor.execute("SELECT id, username FROM users WHERE id = %s", (user_id,))
     user = cursor.fetchone()
     conn.close()
 
@@ -176,7 +179,7 @@ def init_db():
     cursor.execute(
         """
         CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id SERIAL PRIMARY KEY,
             username TEXT NOT NULL UNIQUE,
             password_hash TEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -184,45 +187,27 @@ def init_db():
     """
     )
 
-    try:
-        cursor.execute("ALTER TABLE users ADD COLUMN password_hash TEXT")
-    except sqlite3.OperationalError:
-        pass
-
     cursor.execute(
         """
         CREATE TABLE IF NOT EXISTS movies (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER REFERENCES users(id),
             title TEXT NOT NULL,
             year INTEGER,
             rating FLOAT,
             poster TEXT,
-            added_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY(user_id) REFERENCES users(id)
+            added_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """
     )
 
-    cursor.execute("PRAGMA table_info(movies)")
-    columns = [row[1] for row in cursor.fetchall()]
-    
-    if "user_id" not in columns:
-        try:
-            cursor.execute("ALTER TABLE movies ADD COLUMN user_id INTEGER")
-            cursor.execute("DELETE FROM movies WHERE user_id IS NULL")
-            conn.commit()
-        except sqlite3.OperationalError:
-            pass
-
     cursor.execute(
         """
         CREATE TABLE IF NOT EXISTS watched_movies (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            movie_id INTEGER NOT NULL,
+            id SERIAL PRIMARY KEY,
+            movie_id INTEGER NOT NULL REFERENCES movies(id),
             date_watched TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            points_earned INTEGER DEFAULT 50,
-            FOREIGN KEY(movie_id) REFERENCES movies(id)
+            points_earned INTEGER DEFAULT 50
         )
     """
     )
@@ -230,35 +215,20 @@ def init_db():
     cursor.execute(
         """
         CREATE TABLE IF NOT EXISTS user_points (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            movie_id INTEGER NOT NULL,
+            id SERIAL PRIMARY KEY,
+            movie_id INTEGER NOT NULL REFERENCES watched_movies(id),
             points INTEGER DEFAULT 0,
             bonus_reason TEXT,
-            date_earned TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY(movie_id) REFERENCES watched_movies(id)
+            date_earned TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """
     )
 
-    cursor.execute("PRAGMA table_info(movies)")
-    columns = [row[1] for row in cursor.fetchall()]
-    
-    if "user_id" not in columns:
-        try:
-            cursor.execute("ALTER TABLE movies ADD COLUMN user_id INTEGER")
-            cursor.execute("DELETE FROM movies WHERE user_id IS NULL")
-            conn.commit()
-        except sqlite3.OperationalError:
-            pass
-
-    try:
-        cursor.execute(
-            """
-            CREATE INDEX IF NOT EXISTS idx_movies_user_id ON movies(user_id)
+    cursor.execute(
         """
-        )
-    except sqlite3.OperationalError:
-        pass
+        CREATE INDEX IF NOT EXISTS idx_movies_user_id ON movies(user_id)
+    """
+    )
 
     conn.commit()
     conn.close()
@@ -275,9 +245,9 @@ async def register(user_data: UserRegister):
     """Register a new user"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
-        cursor.execute("SELECT id FROM users WHERE username = ?", (user_data.username,))
+        cursor.execute("SELECT id FROM users WHERE username = %s", (user_data.username,))
         if cursor.fetchone():
             raise HTTPException(status_code=400, detail="Username already exists")
 
@@ -285,13 +255,14 @@ async def register(user_data: UserRegister):
         cursor.execute(
             """
             INSERT INTO users (username, password_hash)
-            VALUES (?, ?)
+            VALUES (%s, %s)
+            RETURNING id
         """,
             (user_data.username, password_hash),
         )
 
+        user_id = cursor.fetchone()["id"]
         conn.commit()
-        user_id = cursor.lastrowid
         conn.close()
 
         access_token = create_access_token(data={"sub": str(user_id)})
@@ -312,9 +283,9 @@ async def login(user_data: UserLogin):
     """Login and get access token"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
-        cursor.execute("SELECT id, username, password_hash FROM users WHERE username = ?", (user_data.username,))
+        cursor.execute("SELECT id, username, password_hash FROM users WHERE username = %s", (user_data.username,))
         user = cursor.fetchone()
         conn.close()
 
@@ -345,13 +316,13 @@ async def add_to_watchlist(movie: Movie, current_user: dict = Depends(get_curren
     """Add movie to watchlist"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         # Check if movie already exists in watchlist (not watched)
         cursor.execute(
             """
-            SELECT id FROM movies 
-            WHERE user_id = ? AND title = ? AND year = ?
+            SELECT id FROM movies
+            WHERE user_id = %s AND title = %s AND year = %s
             AND id NOT IN (SELECT movie_id FROM watched_movies)
         """,
             (current_user["id"], movie.title, movie.year),
@@ -364,13 +335,14 @@ async def add_to_watchlist(movie: Movie, current_user: dict = Depends(get_curren
         cursor.execute(
             """
             INSERT INTO movies (user_id, title, year, rating, poster)
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (%s, %s, %s, %s, %s)
+            RETURNING id
         """,
             (current_user["id"], movie.title, movie.year, movie.rating, movie.poster),
         )
 
+        movie_id = cursor.fetchone()["id"]
         conn.commit()
-        movie_id = cursor.lastrowid
         conn.close()
 
         return {"success": True, "movie_id": movie_id, "message": "Movie added to watchlist"}
@@ -385,11 +357,11 @@ async def remove_from_watchlist(movie_id: int, current_user: dict = Depends(get_
     """Remove movie from watchlist"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         cursor.execute(
             """
-            SELECT id FROM movies WHERE id = ? AND user_id = ?
+            SELECT id FROM movies WHERE id = %s AND user_id = %s
         """,
             (movie_id, current_user["id"]),
         )
@@ -398,7 +370,7 @@ async def remove_from_watchlist(movie_id: int, current_user: dict = Depends(get_
 
         cursor.execute(
             """
-            DELETE FROM movies WHERE id = ? AND user_id = ?
+            DELETE FROM movies WHERE id = %s AND user_id = %s
         """,
             (movie_id, current_user["id"]),
         )
@@ -418,10 +390,10 @@ async def mark_watched(movie_watched: MovieWatched, current_user: dict = Depends
     """Mark a movie as watched and earn points"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         # Check if movie exists and belongs to user
-        cursor.execute("SELECT id FROM movies WHERE id = ? AND user_id = ?", (movie_watched.movie_id, current_user["id"]))
+        cursor.execute("SELECT id FROM movies WHERE id = %s AND user_id = %s", (movie_watched.movie_id, current_user["id"]))
         if not cursor.fetchone():
             raise HTTPException(status_code=404, detail="Movie not found")
 
@@ -430,13 +402,12 @@ async def mark_watched(movie_watched: MovieWatched, current_user: dict = Depends
         cursor.execute(
             """
             INSERT INTO watched_movies (movie_id, date_watched, points_earned)
-            VALUES (?, ?, ?)
+            VALUES (%s, %s, %s)
         """,
             (movie_watched.movie_id, watched_date, 50),
         )
 
         conn.commit()
-        movie_id = cursor.lastrowid
         conn.close()
 
         # Calculate and apply bonus points
@@ -459,13 +430,13 @@ async def get_watchlist(current_user: dict = Depends(get_current_user)):
     """Get all unwatched movies"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         cursor.execute(
             """
             SELECT id, title, year, rating, poster, added_date
             FROM movies
-            WHERE user_id = ? AND id NOT IN (SELECT movie_id FROM watched_movies)
+            WHERE user_id = %s AND id NOT IN (SELECT movie_id FROM watched_movies)
             ORDER BY added_date DESC
         """,
             (current_user["id"],),
@@ -484,7 +455,7 @@ async def get_watched_movies(current_user: dict = Depends(get_current_user)):
     """Get all watched movies with points"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         cursor.execute(
             """
@@ -492,7 +463,7 @@ async def get_watched_movies(current_user: dict = Depends(get_current_user)):
                    w.date_watched, w.points_earned
             FROM movies m
             JOIN watched_movies w ON m.id = w.movie_id
-            WHERE m.user_id = ?
+            WHERE m.user_id = %s
             ORDER BY w.date_watched DESC
         """,
             (current_user["id"],),
@@ -511,20 +482,20 @@ async def unmark_watched(movie_id: int, current_user: dict = Depends(get_current
     """Move a movie from watched back to watchlist"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         cursor.execute(
             """
             SELECT wm.id FROM watched_movies wm
             JOIN movies m ON wm.movie_id = m.id
-            WHERE wm.movie_id = ? AND m.user_id = ?
+            WHERE wm.movie_id = %s AND m.user_id = %s
         """,
             (movie_id, current_user["id"]),
         )
         if not cursor.fetchone():
             raise HTTPException(status_code=404, detail="Watched movie not found or does not belong to user")
 
-        cursor.execute("DELETE FROM watched_movies WHERE movie_id = ?", (movie_id,))
+        cursor.execute("DELETE FROM watched_movies WHERE movie_id = %s", (movie_id,))
         conn.commit()
         conn.close()
 
@@ -540,14 +511,14 @@ async def get_total_points(current_user: dict = Depends(get_current_user)):
     """Get total points earned"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         cursor.execute(
             """
             SELECT SUM(w.points_earned) as total
             FROM watched_movies w
             JOIN movies m ON w.movie_id = m.id
-            WHERE m.user_id = ?
+            WHERE m.user_id = %s
         """,
             (current_user["id"],),
         )
@@ -566,7 +537,7 @@ async def get_stats_summary():
     """Get complete stats summary"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         # Total points
         cursor.execute("SELECT SUM(points_earned) as total FROM watched_movies")
@@ -611,34 +582,34 @@ async def get_leaderboard(period: str = "all_time"):
     """
     try:
         conn = get_db()
-        cursor = conn.cursor()
-        
-        # Calculate date filter based on period
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
+
         if period == "week":
-            date_filter = "datetime('now', '-7 days')"
+            cutoff_date = datetime.now() - timedelta(days=7)
         elif period == "month":
-            date_filter = "datetime('now', '-1 month')"
+            cutoff_date = datetime.now() - timedelta(days=30)
         elif period == "year":
-            date_filter = "datetime('now', '-1 year')"
+            cutoff_date = datetime.now() - timedelta(days=365)
         else:  # all_time
-            date_filter = "datetime('1970-01-01')"
-        
-        query = """
-            SELECT 
+            cutoff_date = datetime(1970, 1, 1)
+
+        cursor.execute(
+            """
+            SELECT
                 u.id,
                 u.username,
                 COALESCE(SUM(w.points_earned), 0) as total_points,
                 COUNT(DISTINCT w.movie_id) as movies_watched
             FROM users u
             LEFT JOIN movies m ON u.id = m.user_id
-            LEFT JOIN watched_movies w ON m.id = w.movie_id 
-                AND datetime(w.date_watched) >= """ + date_filter + """
+            LEFT JOIN watched_movies w ON m.id = w.movie_id
+                AND w.date_watched >= %s
             GROUP BY u.id, u.username
             ORDER BY total_points DESC, movies_watched DESC, u.username ASC
             LIMIT 100
-        """
-        
-        cursor.execute(query)
+        """,
+            (cutoff_date,),
+        )
         results = cursor.fetchall()
         conn.close()
         

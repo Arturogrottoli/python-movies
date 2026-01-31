@@ -1,13 +1,17 @@
-from datetime import datetime, timedelta
-import sqlite3
+from dotenv import load_dotenv
+load_dotenv()
 
-DB_PATH = "movies.db"
+from datetime import datetime, timedelta
+import os
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 
 def get_db():
     """Get database connection"""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
+    conn = psycopg2.connect(DATABASE_URL)
     return conn
 
 
@@ -20,7 +24,7 @@ def calculate_bonus_points(movie_id: int) -> dict:
     """
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         # Get movie info
         cursor.execute(
@@ -28,7 +32,7 @@ def calculate_bonus_points(movie_id: int) -> dict:
             SELECT m.id, m.added_date, w.date_watched
             FROM movies m
             JOIN watched_movies w ON m.id = w.movie_id
-            WHERE m.id = ?
+            WHERE m.id = %s
         """,
             (movie_id,),
         )
@@ -37,8 +41,8 @@ def calculate_bonus_points(movie_id: int) -> dict:
         if not result:
             return {"bonus": 0, "reason": "Movie not found"}
 
-        added_date = datetime.fromisoformat(result["added_date"])
-        watched_date = datetime.fromisoformat(result["date_watched"])
+        added_date = result["added_date"]
+        watched_date = result["date_watched"]
 
         bonus = 0
         reasons = []
@@ -58,7 +62,7 @@ def calculate_bonus_points(movie_id: int) -> dict:
             """
             SELECT COUNT(*) as count
             FROM watched_movies
-            WHERE DATE(date_watched) = DATE(?)
+            WHERE DATE(date_watched) = DATE(%s)
         """,
             (watched_date,),
         )
@@ -88,8 +92,8 @@ def apply_bonus_points(movie_id: int) -> bool:
             cursor.execute(
                 """
                 UPDATE watched_movies
-                SET points_earned = ?
-                WHERE movie_id = ?
+                SET points_earned = %s
+                WHERE movie_id = %s
             """,
                 (50 + bonus_data["bonus"], movie_id),
             )
@@ -99,7 +103,7 @@ def apply_bonus_points(movie_id: int) -> bool:
             cursor.execute(
                 """
                 INSERT INTO user_points (movie_id, points, bonus_reason)
-                VALUES (?, ?, ?)
+                VALUES (%s, %s, %s)
             """,
                 (movie_id, bonus_data["bonus"], reason),
             )
@@ -118,7 +122,7 @@ def get_daily_stats():
     """Get movies watched today and total points today"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         today = datetime.now().date()
 
@@ -126,7 +130,7 @@ def get_daily_stats():
             """
             SELECT COUNT(*) as count, SUM(points_earned) as total_points
             FROM watched_movies
-            WHERE DATE(date_watched) = ?
+            WHERE DATE(date_watched) = %s
         """,
             (today,),
         )
@@ -146,7 +150,7 @@ def get_streak():
     """Get current watching streak (consecutive days with movies watched)"""
     try:
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         cursor.execute(
             """
@@ -164,15 +168,15 @@ def get_streak():
 
         streak = 1
         for i in range(len(dates) - 1):
-            current = datetime.fromisoformat(dates[i]).date()
-            next_date = datetime.fromisoformat(dates[i + 1]).date()
+            current = dates[i]
+            next_date = dates[i + 1]
 
             if (current - next_date).days == 1:
                 streak += 1
             else:
                 break
 
-        return {"streak": streak, "last_watched": dates[0]}
+        return {"streak": streak, "last_watched": str(dates[0])}
     except Exception as e:
         return {"error": str(e)}
 

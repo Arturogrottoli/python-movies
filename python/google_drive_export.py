@@ -4,7 +4,8 @@ Google Drive Export Module
 Este módulo permite exportar los datos de películas a Google Sheets y CSV.
 Requiere configuración de credenciales de Google Cloud para funcionar.
 """
-import sqlite3
+import psycopg2
+from psycopg2.extras import RealDictCursor
 import os
 import logging
 from pathlib import Path
