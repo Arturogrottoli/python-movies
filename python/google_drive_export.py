@@ -4,6 +4,9 @@ Google Drive Export Module
 Este módulo permite exportar los datos de películas a Google Sheets y CSV.
 Requiere configuración de credenciales de Google Cloud para funcionar.
 """
+from dotenv import load_dotenv
+load_dotenv()
+
 import psycopg2
 from psycopg2.extras import RealDictCursor
 import os
@@ -18,7 +21,7 @@ from gspread.exceptions import APIError, SpreadsheetNotFound
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-DB_PATH = "movies.db"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Google Sheets API scopes
 SCOPES = [
@@ -29,16 +32,12 @@ SCOPES = [
 
 def get_db():
     """
-    Obtiene una conexión a la base de datos SQLite.
-    
+    Obtiene una conexión a la base de datos PostgreSQL.
+
     Returns:
-        sqlite3.Connection: Conexión a la base de datos
+        psycopg2.connection: Conexión a la base de datos
     """
-    if not os.path.exists(DB_PATH):
-        logger.warning(f"Database file {DB_PATH} not found. It will be created on first use.")
-    
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
+    conn = psycopg2.connect(DATABASE_URL)
     return conn
 
 
@@ -108,7 +107,7 @@ def export_to_google_sheets(spreadsheet_name: str = "Movie Points Tracker") -> D
 
         # Obtener datos de la base de datos
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         try:
             # Obtener películas vistas
@@ -306,7 +305,7 @@ def export_to_csv(filename: str = "movies_export.csv") -> Dict:
         logger.info(f"Iniciando exportación a CSV: {filename}")
         
         conn = get_db()
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
         try:
             # Obtener todas las películas (vistas y por ver)
@@ -343,7 +342,7 @@ def export_to_csv(filename: str = "movies_export.csv") -> Dict:
             "filename": str(filepath.absolute()),
             "message": f"Datos exportados a {filename}",
         }
-    except sqlite3.Error as e:
+    except psycopg2.Error as e:
         error_msg = f"Error de base de datos: {str(e)}"
         logger.error(error_msg)
         return {"success": False, "error": error_msg}
