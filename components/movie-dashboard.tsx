@@ -38,35 +38,22 @@ export function MovieDashboard() {
   const fetchWatchlist = useCallback(async () => {
     const token = localStorage.getItem("authToken")
     if (!token) {
-      console.log("📋 [MovieDashboard] fetchWatchlist - no hay token, saltando")
       return
     }
-    
+
     const headers = getAuthHeaders()
-    console.log("📋 [MovieDashboard] fetchWatchlist - haciendo request")
-    console.log("📋 [MovieDashboard] Token en localStorage:", token ? token.substring(0, 50) + "..." : "NO HAY TOKEN")
-    console.log("📋 [MovieDashboard] Headers enviados:", { 
-      hasAuth: !!headers.Authorization, 
-      authPrefix: headers.Authorization?.substring(0, 30) || "none" 
-    })
     try {
       const response = await fetch(`${API_BASE_URL}/api/movies/watchlist`, {
         headers: headers,
       })
-      console.log("📋 [MovieDashboard] fetchWatchlist - respuesta:", response.status)
       if (response.ok) {
         const data = await response.json()
         setWatchlist(data.movies || [])
-        console.log("📋 [MovieDashboard] fetchWatchlist - éxito, películas:", data.movies?.length || 0)
       } else if (response.status === 401) {
-        const errorData = await response.json().catch(() => ({}))
-        console.error("📋 [MovieDashboard] fetchWatchlist - 401 error:", errorData.detail || "Token inválido")
-        console.error("📋 [MovieDashboard] Token inválido - NO limpiando localStorage para permitir debug")
-      } else {
-        console.error("Error fetching watchlist:", response.status, response.statusText)
+        // Token invalid - handled silently
       }
     } catch (error) {
-      console.error("Error fetching watchlist:", error)
+      // Network error - handled silently
     }
   }, [])
 
@@ -75,7 +62,7 @@ export function MovieDashboard() {
     if (!token) {
       return
     }
-    
+
     try {
       const response = await fetch(`${API_BASE_URL}/api/movies/watched`, {
         headers: getAuthHeaders(),
@@ -88,25 +75,17 @@ export function MovieDashboard() {
           points: m.points_earned,
         }))
         setWatched(watchedMovies)
-      } else if (response.status === 401) {
-        console.error("📋 [MovieDashboard] fetchWatched - 401 error: Token inválido")
-        console.error("📋 [MovieDashboard] NO limpiando localStorage para permitir debug")
-      } else {
-        console.error("Error fetching watched movies:", response.status, response.statusText)
       }
     } catch (error) {
-      console.error("Error fetching watched movies:", error)
+      // Network error - handled silently
     }
   }, [])
 
   useEffect(() => {
-    console.log("📋 [MovieDashboard] useEffect - montando componente, cargando datos")
     const loadData = async () => {
       setLoading(true)
       try {
         await Promise.all([fetchWatchlist(), fetchWatched()])
-      } catch (error) {
-        console.error("Error cargando datos:", error)
       } finally {
         setLoading(false)
       }
@@ -134,7 +113,7 @@ export function MovieDashboard() {
           window.location.reload()
         }
       } catch (error) {
-        console.error("Error marking movie as watched:", error)
+        // Network error - handled silently
       }
     },
     [fetchWatchlist, fetchWatched],
@@ -157,7 +136,7 @@ export function MovieDashboard() {
           window.location.reload()
         }
       } catch (error) {
-        console.error("Error removing movie from watchlist:", error)
+        // Network error - handled silently
       }
     },
     [fetchWatchlist],
@@ -177,12 +156,9 @@ export function MovieDashboard() {
           localStorage.removeItem("authToken")
           localStorage.removeItem("currentUser")
           window.location.reload()
-        } else {
-          const errorData = await response.json().catch(() => ({}))
-          console.error("Error moving movie back to watchlist:", errorData)
         }
       } catch (error) {
-        console.error("Error moving movie back to watchlist:", error)
+        // Network error - handled silently
       }
     },
     [fetchWatchlist, fetchWatched],
@@ -204,7 +180,7 @@ export function MovieDashboard() {
           window.location.reload()
         }
       } catch (error) {
-        console.error("Error deleting watched movie:", error)
+        // Network error - handled silently
       }
     },
     [fetchWatched],

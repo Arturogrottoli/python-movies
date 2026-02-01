@@ -28,7 +28,7 @@ export function AuthForm({ onAuthSuccess }: AuthFormProps) {
     try {
       const endpoint = isLogin ? "/api/auth/login" : "/api/auth/register"
       const url = `${API_BASE_URL}${endpoint}`
-      
+
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -49,27 +49,20 @@ export function AuthForm({ onAuthSuccess }: AuthFormProps) {
       }
 
       const data = await response.json()
-      console.log("🔐 [AuthForm] Respuesta del servidor:", { hasToken: !!data.access_token, hasUser: !!data.user })
-      
+
       if (!data.access_token) {
-        console.error("❌ [AuthForm] No access_token en la respuesta")
         toast.error("Invalid response from server")
         setLoading(false)
         return
       }
 
-      console.log("🔐 [AuthForm] Guardando token en localStorage")
       localStorage.setItem("authToken", data.access_token)
       localStorage.setItem("currentUser", JSON.stringify(data.user))
-      console.log("🔐 [AuthForm] Token guardado. Verificando:", localStorage.getItem("authToken") ? "OK" : "ERROR")
-      
+
       toast.success(isLogin ? "Login successful!" : "User created successfully!")
-      
-      console.log("🔐 [AuthForm] Llamando onAuthSuccess")
+
       onAuthSuccess(data.access_token, data.user)
-      console.log("🔐 [AuthForm] onAuthSuccess llamado")
     } catch (error) {
-      console.error("Auth error:", error)
       toast.error("Error connecting to server. Make sure the backend is running.")
     } finally {
       setLoading(false)
@@ -133,4 +126,3 @@ export function AuthForm({ onAuthSuccess }: AuthFormProps) {
     </div>
   )
 }
-
