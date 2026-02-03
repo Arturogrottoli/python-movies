@@ -83,13 +83,21 @@ export function MoviesHeader({ onLogout }: MoviesHeaderProps) {
               </div>
             </div>
             {currentUser && (
-              <Button
-                onClick={onLogout}
-                size="sm"
-                className="h-9 px-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold shadow-lg shadow-orange-500/30 border border-orange-400/30 flex-shrink-0"
-              >
-                Sign Out
-              </Button>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <div className="text-right">
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-orange-300/70">Signed in as</p>
+                  <p className="text-xs font-bold bg-gradient-to-r from-orange-200 to-orange-100 bg-clip-text text-transparent">
+                    {currentUser.username}
+                  </p>
+                </div>
+                <Button
+                  onClick={onLogout}
+                  size="sm"
+                  className="h-9 px-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold shadow-lg shadow-orange-500/30 border border-orange-400/30"
+                >
+                  Sign Out
+                </Button>
+              </div>
             )}
           </div>
         </div>

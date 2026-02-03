@@ -147,7 +147,7 @@ export function RecommendedMovies({ onMovieAdded }: RecommendedMoviesProps) {
                       alt={movie.title}
                       className="h-60 sm:h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-100 sm:opacity-0 transition-opacity duration-300 sm:group-hover:opacity-100">
                       <div className="absolute bottom-0 left-0 right-0 p-3">
                         <Button
                           size="sm"

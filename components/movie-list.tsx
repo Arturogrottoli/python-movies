@@ -40,7 +40,7 @@ export function MovieList({ movies, type, onMarkWatched, onRemove, onDeleteFromW
                   e.stopPropagation()
                   onDeleteFromWatchlist?.(movie.id)
                 }}
-                className="absolute top-3 right-3 rounded-full bg-destructive/90 hover:bg-destructive text-destructive-foreground p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-10"
+                className="absolute top-3 right-3 rounded-full bg-destructive/90 hover:bg-destructive text-destructive-foreground p-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity shadow-lg z-10"
                 aria-label="Remove movie"
               >
                 <svg
@@ -64,7 +64,7 @@ export function MovieList({ movies, type, onMarkWatched, onRemove, onDeleteFromW
                   e.stopPropagation()
                   onDeleteWatched?.(movie.id)
                 }}
-                className="absolute top-3 right-3 rounded-full bg-destructive/90 hover:bg-destructive text-destructive-foreground p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-10"
+                className="absolute top-3 right-3 rounded-full bg-destructive/90 hover:bg-destructive text-destructive-foreground p-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity shadow-lg z-10"
                 aria-label="Delete movie"
               >
                 <svg
@@ -82,7 +82,7 @@ export function MovieList({ movies, type, onMarkWatched, onRemove, onDeleteFromW
                 </svg>
               </button>
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-100 sm:opacity-0 transition-opacity duration-300 sm:group-hover:opacity-100 pointer-events-none">
               <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-2.5 pointer-events-auto">
                 {type === "watchlist" && onMarkWatched && (
                   <Button
