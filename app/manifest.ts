@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Movie Points Tracker",
-    short_name: "MoviePTS",
+    name: "Movie Lists",
+    short_name: "Movie Lists",
     description: "Track your movies and earn points",
     start_url: "/",
     display: "standalone",

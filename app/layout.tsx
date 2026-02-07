@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Movie Points Tracker',
+  title: 'Movie Lists',
   description: 'Track your movies and earn points',
   themeColor: '#f97316',
   icons: {
